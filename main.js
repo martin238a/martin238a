@@ -63,10 +63,10 @@ app.use(morgan("combined"));
  * Man laver lige så mange endpoints man har lyst til. Jeg har lavet et enkelt til
  * querien `SELECT 'Hello, World' as message`.
  */
-app.post("/api/helloQuery", async (req, res) => {
+app.post("/api/bnp", async (req, res) => {
   try {
     // Lav query
-    const query = `SELECT 'Hello, World' as message`;
+    const query = `SELECT bnp FROM bnp`;
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({
@@ -81,7 +81,26 @@ app.post("/api/helloQuery", async (req, res) => {
       "message": error.message,
     })
   }
-});
+
+  app.post("/api/aar", async (req, res) => {
+    try {
+      // Lav query
+      const query = `SELECT aarstal FROM bnp`;
+      queryData = await client.query(query);
+      // Giv svar tilbage til JavaScript
+      res.json({
+        "ok": true,
+        "data": queryData.rows,
+      })
+    } catch (error) {
+      // Hvis query fejler, fanges det her.
+      // Send fejlbesked tilbage til JavaScript
+      res.json({
+        "ok": false,
+        "message": error.message,
+      })
+    }
+})});
 
 // Web-serveren startes.
 app.listen(PORT, () => console.log(`Serveren kører på http://localhost:${PORT}`));
