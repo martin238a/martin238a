@@ -66,7 +66,17 @@ app.use(morgan("combined"));
 app.post("/api/bnp", async (req, res) => {
   try {
     // Lav query
-    const query = `SELECT bnp FROM bnp`;
+    const query = `SELECT
+    bnp.bnp,
+    doedsrate.doedsrate, 
+    adgangtilrentvand.ikkeadgangtilrentvand,
+    bnp.land
+    FROM bnp 
+    LEFT JOIN doedsrate
+    ON doedsrate.land=bnp.land
+    LEFT JOIN adgangtilrentvand
+    ON adgangtilrentvand.land=bnp.land
+    WHERE bnp is not null and ikkeadgangtilrentvand is not null`;
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({
@@ -82,25 +92,7 @@ app.post("/api/bnp", async (req, res) => {
     })
   }
 
-  app.post("/api/aar", async (req, res) => {
-    try {
-      // Lav query
-      const query = `SELECT aarstal FROM bnp`;
-      queryData = await client.query(query);
-      // Giv svar tilbage til JavaScript
-      res.json({
-        "ok": true,
-        "data": queryData.rows,
-      })
-    } catch (error) {
-      // Hvis query fejler, fanges det her.
-      // Send fejlbesked tilbage til JavaScript
-      res.json({
-        "ok": false,
-        "message": error.message,
-      })
-    }
-})});
+});
 
 // Web-serveren startes.
 app.listen(PORT, () => console.log(`Serveren kører på http://localhost:${PORT}`));

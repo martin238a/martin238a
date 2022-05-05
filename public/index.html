@@ -19,52 +19,26 @@
     const data = response.data; // Hent data ud af response
     console.log("data", data);
 
-    const w = 500;
-    const h = 350;
+    const w = 1000;
+    const h = 600;
 
     // Lav SVG element
     const svg = d3.select("body")
       .append("svg")
       .attr("width", w)
-      .attr("height", h);
-
-    // Indsæt tekst fra postgres query som eksempel
-    svg.selectAll("text")
-      .data(data)
-      .enter()
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 20)
-      .text(function (d) { return "Svar fra databasen: " + d.message; }) 
-
-      d3.json("/api/aar", {
-    method: "POST", 
-  }).then(function(response) {
-    const data1 = response.data; // Hent data ud af response
-    console.log("data", data1);
-
-    const w = 500;
-    const h = 350;
-
-    // Lav SVG element
-    const svg = d3.select("body")
-      .append("svg")
-      .attr("width", w)
-      .attr("height", h);
-
-    // Indsæt tekst fra postgres query som eksempel
-    svg.selectAll("text")
-      .data(data1)
-      .enter()
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 20)
-      .text(function (d) { return "Svar fra databasen: " + d.message; })
+      .attr("height", h); 
       
     // Lav din egen visualsering med data her!
      // Selve datasættet
-     const dataset = [data, data1];
+     const dataset = data;
 
+     const xScale = d3.scaleLinear()
+      .domain([0, d3.max(dataset, function (d) { return d.doedsrate; })])
+      .range([10, w - 20]);
+    // Lav en skala for y-aksen
+    const yScale = d3.scaleLinear()
+      .domain([0, d3.max(dataset, function (d) { return d.bnp; })])
+      .range([10, h - 20]);
 
 // Lave scatter plot (punktdiagram)
 svg.selectAll("circle") // <-- Før var det 'rect'
@@ -73,13 +47,15 @@ svg.selectAll("circle") // <-- Før var det 'rect'
   .append("circle") // <-- Før var det 'rect'
   .attr("cx", function(d) {
     // 'd' er et koordinat på formen [x, y]
-    return d[0]; // Første værdi i indre array (x)
+    return xScale(d.doedsrate); // Første værdi i indre array (x)
   })
   .attr("cy", function(d) {
-    return d[1]; // Anden værdi i indre array (y)
+    return yScale(d.bnp); // Anden værdi i indre array (y)
   })
-  .attr("r", 4); // Radius er en konstant på '5'
-  })});
+  .attr("r", function(d) {
+    return d.ikkeadgangtilrentvand;
+  }); // Radius er en konstant på '5'
+  });
   
   </script>
 </body>
