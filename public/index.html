@@ -34,17 +34,17 @@
 
     <h3>
       <h4>
-        <label for="myBrowser">Choose a browser from this list:</label>
+        <label for="myBrowser">Gå på opdaglese:</label>
         <input list="browsers" id="myBrowser" name="myBrowser" />
         <datalist id="browsers">
-          <option value="Chrome">
-          <option value="Firefox">
-          <option value="Internet Explorer">
-          <option value="Opera">
-          <option value="Safari">
-          <option value="Microsoft Edge"></h3>
+          <option value="Urbanisering" id="data">
+          <option value="Læsefærdighed" id="data1">
+          <option value="Korruption" id="data2">
+          <option value="Antal år i skole" id="data3">
+          <option value="Fattighedsgrænse" id="data4">
+          </h3>
+
    <ul>
-     
     <div class="main" id="section1">
       <h1 id="head-s1"></h1>
       <br>
@@ -68,8 +68,9 @@
   <table><center>
     <html>
       <head>
-        
-        <script type="text/javascript">
+<div1 id="data">
+        <script type="text/javascript"> 
+
           // Denne query kører op imod API'en som findes i 'main.js'.
   // Denne HTML skal derfor åbnes igennem serveren for at virke.
   d3.json("/api/urbanisering", {
@@ -77,30 +78,6 @@
   }).then(function(response) {
     const data = response.data; // Hent data ud af response
     console.log("data", data);
-
-    d3.json("/api/laesefaerdighed", {
-    method: "POST", 
-  }).then(function(response) {
-    const data1 = response.data; // Hent data ud af response
-    console.log("data", data1);
-
-  d3.json("/api/antalaariskole", {
-    method: "POST", 
-  }).then(function(response) {
-    const data2 = response.data; // Hent data ud af response
-    console.log("data", data2);
-
-  d3.json("/api/fattighedgraense", {
-    method: "POST", 
-  }).then(function(response) {
-    const data3 = response.data; // Hent data ud af response
-    console.log("data", data3);
-
-  d3.json("/api/korruption", {
-    method: "POST", 
-  }).then(function(response) {
-    const data4 = response.data; // Hent data ud af response
-    console.log("data", data4);
 
   
 
@@ -183,9 +160,394 @@ svg.append("g")
   .attr("transform", "translate(0," + (sidePadding-10) + ")")
   // "call" bruger akse-funktionen til at lave selve aksen.
   .call(yAxis); 
-  })})})})});
-   </script> 
-          <style>
+  });
+</script> 
+</div1>
+
+<div2 id="data1">
+  <script type="text/javascript"> 
+
+    // Denne query kører op imod API'en som findes i 'main.js'.
+// Denne HTML skal derfor åbnes igennem serveren for at virke.
+
+d3.json("/api/laesefaerdighed", {
+method: "POST", 
+}).then(function(response) {
+const data1 = response.data; // Hent data ud af response
+console.log("data", data1);
+
+const w = 1000;
+const h = 600;
+
+// Lav SVG element
+const svg = d3.select("body")
+.append("svg")
+.attr("width", w)
+.attr("height", h); 
+
+// Lav din egen visualsering med data her!
+
+// Selve datasættet
+const dataset = data1;
+const sidePadding = 10;
+const bottomPadding = 50;
+
+//lav en skala fro x-aksen
+const xScale = d3.scaleLinear()
+.domain([0, d3.max(data1, d => parseFloat(d.ikkeadgangtilrentvand))])
+.range([sidePadding, w-sidePadding]);
+
+// Lav en skala for y-aksen
+const yScale = d3.scaleLinear()
+.domain([0, d3.max(data1, d => parseFloat(d.laesefaerdighedsrate))])
+.range([h-bottomPadding, bottomPadding]);
+
+
+// Lave scatter plot (punktdiagram)
+svg.selectAll("circle") // <-- Før var det 'rect'
+.data(dataset)
+.enter()
+.append("circle") // <-- Før var det 'rect'
+.attr("cx", function(d) {
+// 'd' er et koordinat på formen [x, y]
+return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
+})
+.attr("cy", function(d) {
+return yScale(d.laesefaerdighedsrate); // Anden værdi i indre array (y)
+})
+.attr("r", function(d) {
+return d.doedsrate/5;
+}); // Radius er en konstant på '5'
+/*
+const x = d3
+.scaleLinear()
+.domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
+.range([0, w]);
+svg
+.append("svg")
+.attr("transform", "translate(0, ${height})")
+.attr("class", "xAxis")
+.call(d3.axisBottom(x));
+*/
+
+// En akse-funktion baseret på skaleringsfunktionen
+const xAxis = d3.axisBottom().scale(xScale);
+// På SVG laver vi en <g>
+// <g> er en container der indeholder andre SVG-elementer.
+svg.append("g") 
+// "transform" er en flytning af hele <g>
+// Eller på dansk: "parallelforskydning".
+// Den flyttes ned i bunden af diagrammet
+.attr("transform", "translate(0," + (h - bottomPadding) + ")")
+// "call" bruger akse-funktionen til at lave selve aksen.
+.call(xAxis);
+
+// En akse-funktion baseret på skaleringsfunktionen
+const yAxis = d3.axisRight().scale(yScale);
+// På SVG laver vi en <g>
+// <g> er en container der indeholder andre SVG-elementer.
+svg.append("g") 
+// "transform" er en flytning af hele <g>
+// Eller på dansk: "parallelforskydning".
+// Den flyttes ned i bunden af diagrammet
+.attr("transform", "translate(0," + (sidePadding-10) + ")")
+// "call" bruger akse-funktionen til at lave selve aksen.
+.call(yAxis); 
+});
+
+</script> 
+</div2>
+
+<div3 id="data2">
+  <script type="text/javascript"> 
+
+    // Denne query kører op imod API'en som findes i 'main.js'.
+// Denne HTML skal derfor åbnes igennem serveren for at virke.
+
+
+d3.json("/api/antalaariskole", {
+method: "POST", 
+}).then(function(response) {
+const data2 = response.data; // Hent data ud af response
+console.log("data", data2);
+
+const w = 1000;
+const h = 600;
+
+// Lav SVG element
+const svg = d3.select("body")
+.append("svg")
+.attr("width", w)
+.attr("height", h); 
+
+// Lav din egen visualsering med data her!
+
+// Selve datasættet
+const dataset = data2;
+const sidePadding = 10;
+const bottomPadding = 50;
+
+//lav en skala fro x-aksen
+const xScale = d3.scaleLinear()
+.domain([0, d3.max(data2, d => parseFloat(d.ikkeadgangtilrentvand))])
+.range([sidePadding, w-sidePadding]);
+
+// Lav en skala for y-aksen
+const yScale = d3.scaleLinear()
+.domain([0, d3.max(data2, d => parseFloat(d.gennemsnitligtantalaariskole))])
+.range([h-bottomPadding, bottomPadding]);
+
+
+
+
+// Lave scatter plot (punktdiagram)
+svg.selectAll("circle") // <-- Før var det 'rect'
+.data(dataset)
+.enter()
+.append("circle") // <-- Før var det 'rect'
+.attr("cx", function(d) {
+// 'd' er et koordinat på formen [x, y]
+return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
+})
+.attr("cy", function(d) {
+return yScale(d.gennemsnitligtantalaariskole); // Anden værdi i indre array (y)
+})
+.attr("r", function(d) {
+return d.doedsrate/5;
+}); // Radius er en konstant på '5'
+/*
+const x = d3
+.scaleLinear()
+.domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
+.range([0, w]);
+svg
+.append("svg")
+.attr("transform", "translate(0, ${height})")
+.attr("class", "xAxis")
+.call(d3.axisBottom(x));
+*/
+
+// En akse-funktion baseret på skaleringsfunktionen
+const xAxis = d3.axisBottom().scale(xScale);
+// På SVG laver vi en <g>
+// <g> er en container der indeholder andre SVG-elementer.
+svg.append("g") 
+// "transform" er en flytning af hele <g>
+// Eller på dansk: "parallelforskydning".
+// Den flyttes ned i bunden af diagrammet
+.attr("transform", "translate(0," + (h - bottomPadding) + ")")
+// "call" bruger akse-funktionen til at lave selve aksen.
+.call(xAxis);
+
+// En akse-funktion baseret på skaleringsfunktionen
+const yAxis = d3.axisRight().scale(yScale);
+// På SVG laver vi en <g>
+// <g> er en container der indeholder andre SVG-elementer.
+svg.append("g") 
+// "transform" er en flytning af hele <g>
+// Eller på dansk: "parallelforskydning".
+// Den flyttes ned i bunden af diagrammet
+.attr("transform", "translate(0," + (sidePadding-10) + ")")
+// "call" bruger akse-funktionen til at lave selve aksen.
+.call(yAxis); 
+});
+
+</script> 
+</div3>
+
+<div4 id="data3">
+  <script type="text/javascript"> 
+
+    // Denne query kører op imod API'en som findes i 'main.js'.
+// Denne HTML skal derfor åbnes igennem serveren for at virke.
+
+
+d3.json("/api/fattighedgraense", {
+method: "POST", 
+}).then(function(response) {
+const data3 = response.data; // Hent data ud af response
+console.log("data", data3);
+
+const w = 1000;
+const h = 600;
+
+// Lav SVG element
+const svg = d3.select("body")
+.append("svg")
+.attr("width", w)
+.attr("height", h); 
+
+// Lav din egen visualsering med data her!
+
+// Selve datasættet
+const dataset = data3;
+const sidePadding = 10;
+const bottomPadding = 50;
+
+//lav en skala fro x-aksen
+const xScale = d3.scaleLinear()
+.domain([0, d3.max(data3, d => parseFloat(d.ikkeadgangtilrentvand))])
+.range([sidePadding, w-sidePadding]);
+
+// Lav en skala for y-aksen
+const yScale = d3.scaleLinear()
+.domain([0, d3.max(data3, d => parseFloat(d.procentdelafbefolkningunderfattighedsgraense))])
+.range([h-bottomPadding, bottomPadding]);
+
+
+// Lave scatter plot (punktdiagram)
+svg.selectAll("circle") // <-- Før var det 'rect'
+.data(dataset)
+.enter()
+.append("circle") // <-- Før var det 'rect'
+.attr("cx", function(d) {
+// 'd' er et koordinat på formen [x, y]
+return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
+})
+.attr("cy", function(d) {
+return yScale(d.procentdelafbefolkningunderfattighedsgraense); // Anden værdi i indre array (y)
+})
+.attr("r", function(d) {
+return d.doedsrate/5;
+}); // Radius er en konstant på '5'
+/*
+const x = d3
+.scaleLinear()
+.domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
+.range([0, w]);
+svg
+.append("svg")
+.attr("transform", "translate(0, ${height})")
+.attr("class", "xAxis")
+.call(d3.axisBottom(x));
+*/
+
+// En akse-funktion baseret på skaleringsfunktionen
+const xAxis = d3.axisBottom().scale(xScale);
+// På SVG laver vi en <g>
+// <g> er en container der indeholder andre SVG-elementer.
+svg.append("g") 
+// "transform" er en flytning af hele <g>
+// Eller på dansk: "parallelforskydning".
+// Den flyttes ned i bunden af diagrammet
+.attr("transform", "translate(0," + (h - bottomPadding) + ")")
+// "call" bruger akse-funktionen til at lave selve aksen.
+.call(xAxis);
+
+// En akse-funktion baseret på skaleringsfunktionen
+const yAxis = d3.axisRight().scale(yScale);
+// På SVG laver vi en <g>
+// <g> er en container der indeholder andre SVG-elementer.
+svg.append("g") 
+// "transform" er en flytning af hele <g>
+// Eller på dansk: "parallelforskydning".
+// Den flyttes ned i bunden af diagrammet
+.attr("transform", "translate(0," + (sidePadding-10) + ")")
+// "call" bruger akse-funktionen til at lave selve aksen.
+.call(yAxis); 
+});
+
+</script> 
+</div4>
+
+<div5 id="data4">
+  <script type="text/javascript"> 
+
+    // Denne query kører op imod API'en som findes i 'main.js'.
+// Denne HTML skal derfor åbnes igennem serveren for at virke.
+d3.json("/api/korruption", {
+method: "POST", 
+}).then(function(response) {
+const data4 = response.data; // Hent data ud af response
+console.log("data", data4);
+
+
+
+const w = 1000;
+const h = 600;
+
+// Lav SVG element
+const svg = d3.select("body")
+.append("svg")
+.attr("width", w)
+.attr("height", h); 
+
+// Lav din egen visualsering med data her!
+
+// Selve datasættet
+const dataset = data4;
+const sidePadding = 10;
+const bottomPadding = 50;
+
+//lav en skala fro x-aksen
+const xScale = d3.scaleLinear()
+.domain([0, d3.max(data4, d => parseFloat(d.ikkeadgangtilrentvand))])
+.range([sidePadding, w-sidePadding]);
+
+// Lav en skala for y-aksen
+const yScale = d3.scaleLinear()
+.domain([0, d3.max(data4, d => parseFloat(d.korruptionsindex))])
+.range([h-bottomPadding, bottomPadding]);
+
+
+
+
+// Lave scatter plot (punktdiagram)
+svg.selectAll("circle") // <-- Før var det 'rect'
+.data(dataset)
+.enter()
+.append("circle") // <-- Før var det 'rect'
+.attr("cx", function(d) {
+// 'd' er et koordinat på formen [x, y]
+return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
+})
+.attr("cy", function(d) {
+return yScale(d.korruptionsindex); // Anden værdi i indre array (y)
+})
+.attr("r", function(d) {
+return d.doedsrate/5;
+}); // Radius er en konstant på '5'
+/*
+const x = d3
+.scaleLinear()
+.domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
+.range([0, w]);
+svg
+.append("svg")
+.attr("transform", "translate(0, ${height})")
+.attr("class", "xAxis")
+.call(d3.axisBottom(x));
+*/
+
+// En akse-funktion baseret på skaleringsfunktionen
+const xAxis = d3.axisBottom().scale(xScale);
+// På SVG laver vi en <g>
+// <g> er en container der indeholder andre SVG-elementer.
+svg.append("g") 
+// "transform" er en flytning af hele <g>
+// Eller på dansk: "parallelforskydning".
+// Den flyttes ned i bunden af diagrammet
+.attr("transform", "translate(0," + (h - bottomPadding) + ")")
+// "call" bruger akse-funktionen til at lave selve aksen.
+.call(xAxis);
+
+// En akse-funktion baseret på skaleringsfunktionen
+const yAxis = d3.axisRight().scale(yScale);
+// På SVG laver vi en <g>
+// <g> er en container der indeholder andre SVG-elementer.
+svg.append("g") 
+// "transform" er en flytning af hele <g>
+// Eller på dansk: "parallelforskydning".
+// Den flyttes ned i bunden af diagrammet
+.attr("transform", "translate(0," + (sidePadding-10) + ")")
+// "call" bruger akse-funktionen til at lave selve aksen.
+.call(yAxis); 
+});
+
+</script> 
+</div5>
+
+ <style>
           #section1 {
             height: 200px;
            
