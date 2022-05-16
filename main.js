@@ -63,20 +63,140 @@ app.use(morgan("combined"));
  * Man laver lige så mange endpoints man har lyst til. Jeg har lavet et enkelt til
  * querien `SELECT 'Hello, World' as message`.
  */
-app.post("/api/bnp", async (req, res) => {
+app.post("/api/urbanisering", async (req, res) => {
   try {
     // Lav query
     const query = `SELECT
-    bnp.bnp,
+    urbanisering.urbanbefolkningprocentdel,
     doedsrate.doedsrate, 
     adgangtilrentvand.ikkeadgangtilrentvand,
-    bnp.land
-    FROM bnp 
+    urbanisering.land
+    FROM urbanisering
     LEFT JOIN doedsrate
-    ON doedsrate.land=bnp.land
+    ON doedsrate.land=urbanisering.land
     LEFT JOIN adgangtilrentvand
-    ON adgangtilrentvand.land=bnp.land
-    WHERE bnp is not null and ikkeadgangtilrentvand is not null`;
+    ON adgangtilrentvand.land=urbanisering.land
+    WHERE urbanbefolkningprocentdel is not null and ikkeadgangtilrentvand is not null`;
+    queryData = await client.query(query);
+    // Giv svar tilbage til JavaScript
+    res.json({
+      "ok": true,
+      "data": queryData.rows,
+    })
+  } catch (error) {
+    // Hvis query fejler, fanges det her.
+    // Send fejlbesked tilbage til JavaScript
+    res.json({
+      "ok": false,
+      "message": error.message,
+    })
+  }
+
+})
+app.post("/api/laesefaerdighed", async (req, res) => {
+  try {
+    // Lav query
+    const query = `SELECT
+    laesefaerdighed.laesefaerdighedsrate,
+    doedsrate.doedsrate, 
+    adgangtilrentvand.ikkeadgangtilrentvand,
+    laesefaerdighed.land
+    FROM laesefaerdighed
+    LEFT JOIN doedsrate
+    ON doedsrate.land=laesefaerdighed.land
+    LEFT JOIN adgangtilrentvand
+    ON adgangtilrentvand.land=laesefaerdighed.land
+    WHERE laesefaerdighedsrate is not null and ikkeadgangtilrentvand is not null`;
+    queryData = await client.query(query);
+    // Giv svar tilbage til JavaScript
+    res.json({
+      "ok": true,
+      "data": queryData.rows,
+    })
+  } catch (error) {
+    // Hvis query fejler, fanges det her.
+    // Send fejlbesked tilbage til JavaScript
+    res.json({
+      "ok": false,
+      "message": error.message,
+    })
+  }
+
+})
+app.post("/api/antalaariskole", async (req, res) => {
+  try {
+    // Lav query
+    const query = `SELECT
+    antalaariskole.gennemsnitligtantalaariskole,
+    doedsrate.doedsrate, 
+    adgangtilrentvand.ikkeadgangtilrentvand,
+    antalaariskole.land
+    FROM antalaariskole
+    LEFT JOIN doedsrate
+    ON doedsrate.land=antalaariskole.land
+    LEFT JOIN adgangtilrentvand
+    ON adgangtilrentvand.land=antalaariskole.land
+    WHERE gennemsnitligtantalaariskole is not null and ikkeadgangtilrentvand is not null`;
+    queryData = await client.query(query);
+    // Giv svar tilbage til JavaScript
+    res.json({
+      "ok": true,
+      "data": queryData.rows,
+    })
+  } catch (error) {
+    // Hvis query fejler, fanges det her.
+    // Send fejlbesked tilbage til JavaScript
+    res.json({
+      "ok": false,
+      "message": error.message,
+    })
+  }
+
+})
+app.post("/api/fattighedgraense", async (req, res) => {
+  try {
+    // Lav query
+    const query = `SELECT
+    fattighedsgraense.procentdelafbefolkningunderfattighedsgraense,
+    doedsrate.doedsrate, 
+    adgangtilrentvand.ikkeadgangtilrentvand,
+    fattighedsgraense.land
+    FROM fattighedsgraense
+    LEFT JOIN doedsrate
+    ON doedsrate.land=fattighedsgraense.land
+    LEFT JOIN adgangtilrentvand
+    ON adgangtilrentvand.land=fattighedsgraense.land
+    WHERE procentdelafbefolkningunderfattighedsgraense is not null and ikkeadgangtilrentvand is not null`;
+    queryData = await client.query(query);
+    // Giv svar tilbage til JavaScript
+    res.json({
+      "ok": true,
+      "data": queryData.rows,
+    })
+  } catch (error) {
+    // Hvis query fejler, fanges det her.
+    // Send fejlbesked tilbage til JavaScript
+    res.json({
+      "ok": false,
+      "message": error.message,
+    })
+  }
+
+})
+app.post("/api/korruption", async (req, res) => {
+  try {
+    // Lav query
+    const query = `SELECT
+    korruption.korruptionsindex,
+    doedsrate.doedsrate, 
+    adgangtilrentvand.ikkeadgangtilrentvand,
+    korruption.land
+    FROM korruption
+    LEFT JOIN doedsrate
+    ON doedsrate.land=korruption.land
+    LEFT JOIN adgangtilrentvand
+    ON adgangtilrentvand.land=korruption.land
+    WHERE korruptionsindex is not null and ikkeadgangtilrentvand is not null`;
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({

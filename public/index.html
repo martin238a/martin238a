@@ -1,23 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
   <script src="scripts/d3.js"></script>
-  <title>Postgres node.js template med d3.js</title>
-</head>
+    <title>Projekt unsafe water</title>
+    <script>
+      function changeColor() {
+        document.body.style.backgroundColor = "#18188c";
+      }
+    </script>
+    <style>
+   
+    h1, h2, SPAN, center, h3, h4 {
+      color: rgb(255, 255, 255);
+    }
+    body {
+      background-color: rgb(249, 249, 249);
+      margin: 50px;
+    }
+  </style>
+  </head>
+  
+  
+  <body>
+    <div class="main" id="section1">
+  
 
-<body>
-  <h1>Postgres node.js template med d3.js</h1>
+  <center STYLE="font-size:42.0pt"  >Projekt unsafe water</center> 
 
-  <script>
-  // Denne query kører op imod API'en som findes i 'main.js'.
+
+  <center STYLE="font-size:18.0pt">indsæt tekst</center> 
+
+    <h3>
+      <h4>
+        <label for="myBrowser">Choose a browser from this list:</label>
+        <input list="browsers" id="myBrowser" name="myBrowser" />
+        <datalist id="browsers">
+          <option value="Chrome">
+          <option value="Firefox">
+          <option value="Internet Explorer">
+          <option value="Opera">
+          <option value="Safari">
+          <option value="Microsoft Edge"></h3>
+   <ul>
+     
+    <div class="main" id="section1">
+      <h1 id="head-s1"></h1>
+      <br>
+     
+      
+      
+    
+    </div>
+  </ul>
+
+
+    </datalist>
+          
+
+
+</datalist>
+
+
+  </h4>
+
+  <table><center>
+    <html>
+      <head>
+        
+        <script type="text/javascript">
+          // Denne query kører op imod API'en som findes i 'main.js'.
   // Denne HTML skal derfor åbnes igennem serveren for at virke.
-  d3.json("/api/bnp", {
+  d3.json("/api/urbanisering", {
     method: "POST", 
   }).then(function(response) {
     const data = response.data; // Hent data ud af response
     console.log("data", data);
+
+    d3.json("/api/laesefaerdighed", {
+    method: "POST", 
+  }).then(function(response) {
+    const data1 = response.data; // Hent data ud af response
+    console.log("data", data1);
+
+  d3.json("/api/antalaariskole", {
+    method: "POST", 
+  }).then(function(response) {
+    const data2 = response.data; // Hent data ud af response
+    console.log("data", data2);
+
+  d3.json("/api/fattighedgraense", {
+    method: "POST", 
+  }).then(function(response) {
+    const data3 = response.data; // Hent data ud af response
+    console.log("data", data3);
+
+  d3.json("/api/korruption", {
+    method: "POST", 
+  }).then(function(response) {
+    const data4 = response.data; // Hent data ud af response
+    console.log("data", data4);
+
+  
 
     const w = 1000;
     const h = 600;
@@ -37,12 +122,16 @@
 
      //lav en skala fro x-aksen
      const xScale = d3.scaleLinear()
-      .domain([0, d3.max(data, d => +d.ikkeadgangtilrentvand, function (d) { return d.ikkeadgangtilrentvand; })])
+      .domain([0, d3.max(data, d => parseFloat(d.ikkeadgangtilrentvand))])
       .range([sidePadding, w-sidePadding]);
+
     // Lav en skala for y-aksen
     const yScale = d3.scaleLinear()
-      .domain([0, d3.max(data, d=> +d.bnp, function (d) { return d.bnp; })])
+      .domain([0, d3.max(data, d => parseFloat(d.urbanbefolkningprocentdel))])
       .range([h-bottomPadding, bottomPadding]);
+
+console.log("max", d3.max(data, d => parseFloat(d.urbanbefolkningprocentdel)));
+    
 
 // Lave scatter plot (punktdiagram)
 svg.selectAll("circle") // <-- Før var det 'rect'
@@ -54,7 +143,7 @@ svg.selectAll("circle") // <-- Før var det 'rect'
     return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
   })
   .attr("cy", function(d) {
-    return yScale(d.bnp); // Anden værdi i indre array (y)
+    return yScale(d.urbanbefolkningprocentdel); // Anden værdi i indre array (y)
   })
   .attr("r", function(d) {
     return d.doedsrate/5;
@@ -84,37 +173,257 @@ svg.append("g")
   .call(xAxis);
 
 // En akse-funktion baseret på skaleringsfunktionen
-const yAxis = d3.axisRight().scale(yScale);
+ const yAxis = d3.axisRight().scale(yScale);
 // På SVG laver vi en <g>
 // <g> er en container der indeholder andre SVG-elementer.
 svg.append("g") 
   // "transform" er en flytning af hele <g>
   // Eller på dansk: "parallelforskydning".
   // Den flyttes ned i bunden af diagrammet
-  .attr("transform", "translate(" + (sidePadding) +"," + "rotate(-90)")
+  .attr("transform", "translate(0," + (sidePadding-10) + ")")
   // "call" bruger akse-funktionen til at lave selve aksen.
-  .call(yAxis);
+  .call(yAxis); 
+  })})})})});
+   </script> 
+          <style>
+          #section1 {
+            height: 200px;
+           
+          }
+          
+          #section2 {
+            height: 2000px;
+            
+          }
+        
+    
+          </style>
+          </head>
+    
+
+</div>
 
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-/*
-  const y = d3
-    .scaleLinear()
-    .domain([0, d3.max(data, d => +d.bnp)])
-    .range([h, 0])
-                        svg
-    .append("svg")
-    .attr("class", "yAxis")
-    .call(d3.axisLeft(y))
-     // Add titles to the y axis
-    .append("text")
-    .attr("class", "yAxis_label")
-    .text("TWh")
-    .attr("text-anchor", "middle")
-    .attr("transform", "translate(" + (20) + "," + (h / 2) + ")rotate(-90)") // text is drawn off the screen top left, move down and out and rotate
-    .attr("color", "black"); */
-  });
+<div class="main" id="section1">
+
+<h6>  <a href="#section2" > <i class="fa fa-arrow-down" style="font-size:52px ;color:hotpink"></i></a>
   
-  </script>
+          
+  <section>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container reveal">
+        <h1>Fakta :</h1>
+        <div class="cards">
+            <div class="textcards">
+                <h3> unasfe water?</h3>
+                <p>I 1985 var vores primære energikilde fossile brændstoffer og kul i Danmark. (Vedvarende
+                    energikilder var ikke særligt udnyttet i den tid)<br><br>
+                    I 1985 producerede Danmark ca. 0.05 TWh i vindenergi, 0,0297 TWh i vandenergi <br><br> (Takket
+                    være vores
+                    vandværker)<br><br> Men så udelukkes det ikke, at størstedelen kom fra kul og fossiler, hvilket
+                    tyder på, at vi sammenlagt fik brugt 218 TWh i 1985.
+                </p>
+            </div>
+            <div class="textcards">
+                <h3>Hvilket mål har vi landet denne proces?</h3>
+                <p>På trods af en række modgange, har vi stadig formået at fremstille noget overbliksdannende og
+                    relativt. Noget som er tankevækkende og ikke rigtigt viser sig uden relevans.<br>
+                    Vi har formået at udarbejde noget, som faktisk bærer betydning og besvarer spørgsmål, hvilket
+                    også var målet.<br><br>
+                    Et andet mål som vi har landet i denne proces er bl.a. måden at tackle konflikter på, samt måden
+                    hvorpå vi inddrages i det, som vi læser til (IT-arkitektur).<br><br>Det at skabe noget
+                    kommunikativt og interaktivt,<br> samt måden man får 2 ukendte ting til at kommunikere
+                    sammen.<br>
+                    (Databasen og JavaScript i dette tilfælde.)
+                </p>
+            </div>
+            <div class="textcards">
+                <h3> Hvad vil vi vise med vores visualisering?</h3>
+                <p>Vi vil gerne vise jer Danmark og andre landes energi forbrug pr. år siden 1985 og frem til 2019,
+                    med henblik på at danne et overblik over stigninger og fald i energiforbrug.
+                    <br><br> Det som kan fortælles, er at det er særdeles tankevækkende, især det at forbruget
+                    udvikler sig som en ting der ligger latent i vores bevidsthed.<br><br>(Vi 'glemmer' at
+                    genoverveje
+                    forbruget af energi, og hvor belastende det er for vores klima og miljø)
+                </p>
+            </div>
+        </div>
+</section>
+
+       </h6>
+
+       <a href="#section3" > <i class="fa fa-arrow-down" style="font-size:52px ;color:hotpink"></i></a>
+
+
+  
+      </body>
+      
+    </html>
+  
+  </table></center>
+  <body>
+    <div class="main" id="section2"></div>
+    <h3>
+
+      <div class="textcards">
+        <h3>uirghjeiuergjejeorgie</h3>
+        
+        </div>
+
+        <div class="main" id="section3">   
+
+
+    </h3>
+    <h7>
+      <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+
+.fa-child {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Lyst til at gøre en forskel eller blive klogere?</h2>
+
+<!-- Add font awesome icons -->
+<a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-child"></a>
+<a href="#" class="fa fa-youtube"></a>
+<a href="#" class="fa fa-instagram"></a>
+<h3>
+  <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+</head>
+<body>
+
+<button class="button"><span>Donate</span></button>
+
+
+
 </body>
 </html>
+</h3>
+
+
+<div class="main" id="section3"></div>
+</body>
+</html> 
+    </h7>
+  </body>
+</body>
+
+</html>
+
+</script>
+
+</head>
