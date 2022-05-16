@@ -1,0 +1,4 @@
+export DB_NAME="atbkznht"
+export DB_USER="atbkznht"
+export DB_PW="kjEGDkCUeZdZIQpRojKIpCQNN9O7RWqW"
+export DB_HOST="dumbo.db.elephantsql.com"
