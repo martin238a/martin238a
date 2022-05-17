@@ -34,16 +34,16 @@
 
     <h3>
       <h4>
-        <label for="myBrowser">Gå på opdaglese:</label>
-        <input list="browsers" id="myBrowser" name="myBrowser" />
-        <datalist id="browsers">
-          <option value="Urbanisering" id="data">
-          <option value="Læsefærdighed" id="data1">
-          <option value="Korruption" id="data2">
-          <option value="Antal år i skole" id="data3">
-          <option value="Fattighedsgrænse" id="data4">
+        
+        <button id="data">Datasæt 1</button>
+        <button id="data1">Datasæt2</button>
+        <button id="data2">Datasæt3</button>
+        <button id="data3">datasæt4</button>
+        <button id="data4">datasæt5</button>
+
           </h3>
 
+    
    <ul>
     <div class="main" id="section1">
       <h1 id="head-s1"></h1>
@@ -69,6 +69,7 @@
     <html>
       <head>
 <div1 id="data">
+
         <script type="text/javascript"> 
 
           // Denne query kører op imod API'en som findes i 'main.js'.
@@ -79,7 +80,15 @@
     const data = response.data; // Hent data ud af response
     console.log("data", data);
 
-  
+    d3.selectAll("#data, #data1, #data2, #data3, #data4")
+  // Koden herunder køres kun ved tryk på knappen
+  .on("click", function (e) {
+    // Find hvilken knap der blev trykket på
+    const id = e.target.id;
+    console.log(id);
+
+    d3.select("div1").style("display", "none");
+  });
 
     const w = 1000;
     const h = 600;

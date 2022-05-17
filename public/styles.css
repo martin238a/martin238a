@@ -51,3 +51,6 @@ section .cards .textcards h3{
     z-index: -1;
 }
 
+.hide {
+  visibility: hidden;
+}
