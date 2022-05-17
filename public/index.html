@@ -35,11 +35,11 @@
     <h3>
       <h4>
         
-        <button id="data00">Datasæt 1</button>
-        <button id="data11">Datasæt2</button>
-        <button id="data22">Datasæt3</button>
-        <button id="data33">datasæt4</button>
-        <button id="data44">datasæt5</button>
+        <button id="klik1">Urbanisering</button>
+        <button id="klik2">Læsefærdighed</button>
+        <button id="klik3">Antal år i skole</button>
+        <button id="klik4">Fattighedsgrænse</button>
+        <button id="klik5">Korruptionsindex</button>
 
           </h3>
 
@@ -80,7 +80,7 @@
     const data = response.data; // Hent data ud af response
     console.log("data", data);
 
-    d3.selectAll("#data00")
+    d3.selectAll("#klik1")
   // Koden herunder køres kun ved tryk på knappen
   .on("click", function (e) {
     // Find hvilken knap der blev trykket på
@@ -106,7 +106,6 @@
       .attr("width", w)
       .attr("height", h) 
       .attr("id", "svg1");
-      
     // Lav din egen visualsering med data her!
 
      // Selve datasættet
@@ -193,7 +192,7 @@ method: "POST",
 const data1 = response.data; // Hent data ud af response
 console.log("data", data1);
 
-d3.select("#data11")
+d3.select("#klik2")
   // Koden herunder køres kun ved tryk på knappen
   .on("click", function (e) {
     // Find hvilken knap der blev trykket på
@@ -214,7 +213,8 @@ const svg = d3.select("body")
 .append("svg")
 .attr("width", w)
 .attr("height", h)
-.attr("id", "svg2");
+.attr("id", "svg2")
+.attr("style", "display:none");
 
 // Lav din egen visualsering med data her!
 
@@ -302,7 +302,7 @@ method: "POST",
 const data2 = response.data; // Hent data ud af response
 console.log("data", data2);
 
-d3.select("#data22")
+d3.select("#klik3")
   // Koden herunder køres kun ved tryk på knappen
   .on("click", function (e) {
     // Find hvilken knap der blev trykket på
@@ -323,7 +323,8 @@ const svg = d3.select("body")
 .append("svg")
 .attr("width", w)
 .attr("height", h)
-.attr("id", "svg3");
+.attr("id", "svg3")
+.attr("style", "display:none");
 
 // Lav din egen visualsering med data her!
 
@@ -413,7 +414,7 @@ method: "POST",
 const data3 = response.data; // Hent data ud af response
 console.log("data", data3);
 
-d3.select("#data33")
+d3.select("#klik4")
   // Koden herunder køres kun ved tryk på knappen
   .on("click", function (e) {
     // Find hvilken knap der blev trykket på
@@ -434,7 +435,8 @@ const svg = d3.select("body")
 .append("svg")
 .attr("width", w)
 .attr("height", h)
-.attr("id", "svg4");
+.attr("id", "svg4")
+.attr("style", "display:none");
 
 // Lav din egen visualsering med data her!
 
@@ -520,7 +522,7 @@ method: "POST",
 const data4 = response.data; // Hent data ud af response
 console.log("data", data4);
 
-d3.select("#data44")
+d3.select("#klik5")
   // Koden herunder køres kun ved tryk på knappen
   .on("click", function (e) {
     // Find hvilken knap der blev trykket på
@@ -541,7 +543,8 @@ const svg = d3.select("body")
 .append("svg")
 .attr("width", w)
 .attr("height", h)
-.attr("id", "svg5");
+.attr("id", "svg5")
+.attr("style", "display:none");
 
 // Lav din egen visualsering med data her!
 
