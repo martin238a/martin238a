@@ -76,7 +76,7 @@ app.post("/api/urbanisering", async (req, res) => {
     ON doedsrate.land=urbanisering.land
     LEFT JOIN adgangtilrentvand
     ON adgangtilrentvand.land=urbanisering.land
-    WHERE urbanisering.land='Somalia','China','African Republic' `;
+    WHERE ikkeadgangtilrentvand is not null and urbanbefolkningprocentdel is not null and urbanisering.land IN ('Nigeria', 'Somalia','African Republic','Liberia','India','Pakistan','Brazil','Denmark','China','Russia','United Kingdom','United States')`;
 
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
@@ -107,7 +107,7 @@ app.post("/api/laesefaerdighed", async (req, res) => {
     ON doedsrate.land=laesefaerdighed.land
     LEFT JOIN adgangtilrentvand
     ON adgangtilrentvand.land=laesefaerdighed.land
-    WHERE laesefaerdighedsrate is not null and ikkeadgangtilrentvand is not null`;
+    WHERE laesefaerdighedsrate is not null and ikkeadgangtilrentvand is not null and laesefaerdighed.land IN ('Nigeria', 'Somalia','African Republic','Liberia','India','Pakistan','Brazil','Denmark','China','Russia','United Kingdom','United States')`;
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({
@@ -137,7 +137,7 @@ app.post("/api/antalaariskole", async (req, res) => {
     ON doedsrate.land=antalaariskole.land
     LEFT JOIN adgangtilrentvand
     ON adgangtilrentvand.land=antalaariskole.land
-    WHERE gennemsnitligtantalaariskole is not null and ikkeadgangtilrentvand is not null`;
+    WHERE gennemsnitligtantalaariskole is not null and ikkeadgangtilrentvand is not null and antalaariskole.land IN ('Nigeria', 'Somalia','African Republic','Liberia','India','Pakistan','Brazil','Denmark','China','Russia','United Kingdom','United States')`;
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({
@@ -167,7 +167,7 @@ app.post("/api/fattighedgraense", async (req, res) => {
     ON doedsrate.land=fattighedsgraense.land
     LEFT JOIN adgangtilrentvand
     ON adgangtilrentvand.land=fattighedsgraense.land
-    WHERE procentdelafbefolkningunderfattighedsgraense is not null and ikkeadgangtilrentvand is not null`;
+    WHERE procentdelafbefolkningunderfattighedsgraense is not null and ikkeadgangtilrentvand is not null and fattighedsgraense.land IN ('Nigeria', 'Somalia','African Republic','Liberia','India','Pakistan','Brazil','Denmark','China','Russia','United Kingdom','United States')`;
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({
@@ -197,7 +197,7 @@ app.post("/api/korruption", async (req, res) => {
     ON doedsrate.land=korruption.land
     LEFT JOIN adgangtilrentvand
     ON adgangtilrentvand.land=korruption.land
-    WHERE korruptionsindex is not null and ikkeadgangtilrentvand is not null`;
+    WHERE korruptionsindex is not null and ikkeadgangtilrentvand is not null and korruption.land IN ('Nigeria', 'Somalia','African Republic','Liberia','India','Pakistan','Brazil','Denmark','China','Russia','United Kingdom','United States')`;
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({

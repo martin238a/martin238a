@@ -141,9 +141,9 @@ svg.selectAll("circle") // <-- Før var det 'rect'
   .attr("r", function(d) {
     return d.doedsrate/5;
   }) // Radius er en konstant på '5'
-  .style("stroke", "orange")
+  .style("stroke", "white")
   .style("fill", "pink")
-  .style("stroke-width", "2px");
+  .style("stroke-width", "3px");
   
 
 
@@ -253,19 +253,13 @@ return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
 return yScale(d.laesefaerdighedsrate); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
-return d.doedsrate/5;
-}); // Radius er en konstant på '5'
-/*
-const x = d3
-.scaleLinear()
-.domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
-.range([0, w]);
-svg
-.append("svg")
-.attr("transform", "translate(0, ${height})")
-.attr("class", "xAxis")
-.call(d3.axisBottom(x));
-*/
+return d.doedsrate/5
+})
+
+.style("stroke", "white")
+  .style("fill", "pink")
+  .style("stroke-width", "3px");
+  
 
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
@@ -366,19 +360,10 @@ return yScale(d.gennemsnitligtantalaariskole); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
 return d.doedsrate/5;
-}); // Radius er en konstant på '5'
-/*
-const x = d3
-.scaleLinear()
-.domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
-.range([0, w]);
-svg
-.append("svg")
-.attr("transform", "translate(0, ${height})")
-.attr("class", "xAxis")
-.call(d3.axisBottom(x));
-*/
-
+}) .style("stroke", "white")
+  .style("fill", "pink")
+  .style("stroke-width", "3px");
+  
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -476,18 +461,11 @@ return yScale(d.procentdelafbefolkningunderfattighedsgraense); // Anden værdi i
 })
 .attr("r", function(d) {
 return d.doedsrate/5;
-}); // Radius er en konstant på '5'
-/*
-const x = d3
-.scaleLinear()
-.domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
-.range([0, w]);
-svg
-.append("svg")
-.attr("transform", "translate(0, ${height})")
-.attr("class", "xAxis")
-.call(d3.axisBottom(x));
-*/
+})
+.style("stroke", "white")
+  .style("fill", "pink")
+  .style("stroke-width", "3px");
+  
 
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
@@ -586,18 +564,11 @@ return yScale(d.korruptionsindex); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
 return d.doedsrate/5;
-}); // Radius er en konstant på '5'
-/*
-const x = d3
-.scaleLinear()
-.domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
-.range([0, w]);
-svg
-.append("svg")
-.attr("transform", "translate(0, ${height})")
-.attr("class", "xAxis")
-.call(d3.axisBottom(x));
-*/
+})
+.style("stroke", "white")
+  .style("fill", "pink")
+  .style("stroke-width", "3px");
+  
 
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
