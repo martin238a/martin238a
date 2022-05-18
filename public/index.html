@@ -110,7 +110,7 @@
 
      // Selve datasættet
      const dataset = data;
-     const sidePadding = 10;
+     const sidePadding = 20;
      const bottomPadding = 50;
 
      //lav en skala fro x-aksen
@@ -140,10 +140,29 @@ svg.selectAll("circle") // <-- Før var det 'rect'
   })
   .attr("r", function(d) {
     return d.doedsrate/5;
-  }) // Radius er en konstant på '5'
-  .style("stroke", "white")
-  .style("fill", "pink")
-  .style("stroke-width", "3px");
+  })  // Radius er en konstant på '5'
+  .style("stroke", "lightgreen")
+  .style("fill", "lightgreen")
+  .style("stroke-width", "3px")
+  
+  svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
+      .data(dataset)
+      .enter()
+      .append("text")
+      .text(function (d) {
+        return `${d.land}`;
+      })
+      .attr("x", function (d) {
+        return xScale(d.ikkeadgangtilrentvand);
+      })
+      .attr("y", function (d) {
+        return yScale(d.urbanbefolkningprocentdel);
+      })
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "11px")
+      .attr("class", "label") // Husk at sætte class på
+      .attr("fill","white");
+  ;
   
 
 
@@ -226,7 +245,7 @@ const svg = d3.select("body")
 
 // Selve datasættet
 const dataset = data1;
-const sidePadding = 10;
+const sidePadding = 20;
 const bottomPadding = 50;
 
 //lav en skala fro x-aksen
@@ -256,9 +275,28 @@ return yScale(d.laesefaerdighedsrate); // Anden værdi i indre array (y)
 return d.doedsrate/5
 })
 
-.style("stroke", "white")
-  .style("fill", "pink")
-  .style("stroke-width", "3px");
+.style("stroke", "lightgreen")
+  .style("fill", "lightgreen")
+  .style("stroke-width", "3px")
+  
+  svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
+      .data(dataset)
+      .enter()
+      .append("text")
+      .text(function (d) {
+        return `${d.land}`;
+      })
+      .attr("x", function (d) {
+        return xScale(d.ikkeadgangtilrentvand);
+      })
+      .attr("y", function (d) {
+        return yScale(d.laesefaerdighedsrate);
+      })
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "11px")
+      .attr("class", "label") // Husk at sætte class på
+      .attr("fill","white");
+  ;
   
 
 // En akse-funktion baseret på skaleringsfunktionen
@@ -330,7 +368,7 @@ const svg = d3.select("body")
 
 // Selve datasættet
 const dataset = data2;
-const sidePadding = 10;
+const sidePadding = 20;
 const bottomPadding = 50;
 
 //lav en skala fro x-aksen
@@ -360,10 +398,28 @@ return yScale(d.gennemsnitligtantalaariskole); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
 return d.doedsrate/5;
-}) .style("stroke", "white")
-  .style("fill", "pink")
-  .style("stroke-width", "3px");
+}) .style("stroke", "lightgreen")
+  .style("fill", "lightgreen")
+  .style("stroke-width", "3px")
   
+  svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
+      .data(dataset)
+      .enter()
+      .append("text")
+      .text(function (d) {
+        return `${d.land}`;
+      })
+      .attr("x", function (d) {
+        return xScale(d.ikkeadgangtilrentvand);
+      })
+      .attr("y", function (d) {
+        return yScale(d.gennemsnitligtantalaariskole);
+      })
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "11px")
+      .attr("class", "label") // Husk at sætte class på
+      .attr("fill","white");
+  ;
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -433,7 +489,7 @@ const svg = d3.select("body")
 
 // Selve datasættet
 const dataset = data3;
-const sidePadding = 10;
+const sidePadding = 20;
 const bottomPadding = 50;
 
 //lav en skala fro x-aksen
@@ -462,9 +518,28 @@ return yScale(d.procentdelafbefolkningunderfattighedsgraense); // Anden værdi i
 .attr("r", function(d) {
 return d.doedsrate/5;
 })
-.style("stroke", "white")
-  .style("fill", "pink")
-  .style("stroke-width", "3px");
+.style("stroke", "lightgreen")
+  .style("fill", "lightgreen")
+  .style("stroke-width", "3px")
+  
+  svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
+      .data(dataset)
+      .enter()
+      .append("text")
+      .text(function (d) {
+        return `${d.land}`;
+      })
+      .attr("x", function (d) {
+        return xScale(d.ikkeadgangtilrentvand);
+      })
+      .attr("y", function (d) {
+        return yScale(d.procentdelafbefolkningunderfattighedsgraense);
+      })
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "11px")
+      .attr("class", "label") // Husk at sætte class på
+      .attr("fill","white");
+  ;
   
 
 // En akse-funktion baseret på skaleringsfunktionen
@@ -534,7 +609,7 @@ const svg = d3.select("body")
 
 // Selve datasættet
 const dataset = data4;
-const sidePadding = 10;
+const sidePadding = 20;
 const bottomPadding = 50;
 
 //lav en skala fro x-aksen
@@ -565,9 +640,27 @@ return yScale(d.korruptionsindex); // Anden værdi i indre array (y)
 .attr("r", function(d) {
 return d.doedsrate/5;
 })
-.style("stroke", "white")
-  .style("fill", "pink")
-  .style("stroke-width", "3px");
+.style("stroke", "lightgreen")
+  .style("fill", "lightgreen")
+  .style("stroke-width", "3px")
+  
+  svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
+      .data(dataset)
+      .enter()
+      .append("text")
+      .text(function (d) {
+        return `${d.land}`;
+      })
+      .attr("x", function (d) {
+        return xScale(d.ikkeadgangtilrentvand);
+      })
+      .attr("y", function (d) {
+        return yScale(d.korruptionsindex);
+      })
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "11px")
+      .attr("class", "label") // Husk at sætte class på
+      .attr("fill","white");
   
 
 // En akse-funktion baseret på skaleringsfunktionen
@@ -599,6 +692,7 @@ svg.append("g")
 </div5>
 
 
+
  <style>
           #section1 {
             height: 200px;
@@ -617,6 +711,18 @@ svg.append("g")
 
 </div>
 
+<div class="cards">
+  <div class="textcards">
+    
+      <h4 class="alignright">  unasfe water?</h4>
+      <p class="alignright" > I 1985 var vores primære energikilde fossile brændstoffer og kul i Danmark. (Vedvarende
+          energikilder var ikke særligt udnyttet i den tid)<br><br>
+          I 1985 producerede Danmark ca. 0.05 TWh i vindenergi, 0,0297 TWh i vandenergi <br><br> (Takket
+          være vores
+          vandværker)<br><br> Men så udelukkes det ikke, at størstedelen kom fra kul og fossiler, hvilket
+          tyder på, at vi sammenlagt fik brugt 218 TWh i 1985.
+      </p>
+  </div>
 
 <br />
 <br />
