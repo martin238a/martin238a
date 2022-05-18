@@ -76,7 +76,8 @@ app.post("/api/urbanisering", async (req, res) => {
     ON doedsrate.land=urbanisering.land
     LEFT JOIN adgangtilrentvand
     ON adgangtilrentvand.land=urbanisering.land
-    WHERE urbanbefolkningprocentdel is not null and ikkeadgangtilrentvand is not null`;
+    WHERE urbanisering.land='Somalia','China','African Republic' `;
+
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({

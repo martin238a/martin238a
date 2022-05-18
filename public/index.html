@@ -140,7 +140,13 @@ svg.selectAll("circle") // <-- Før var det 'rect'
   })
   .attr("r", function(d) {
     return d.doedsrate/5;
-  }); // Radius er en konstant på '5'
+  }) // Radius er en konstant på '5'
+  .style("stroke", "orange")
+  .style("fill", "pink")
+  .style("stroke-width", "2px");
+  
+
+
 /*
   const x = d3
    .scaleLinear()
@@ -175,9 +181,9 @@ svg.append("g")
   // Den flyttes ned i bunden af diagrammet
   .attr("transform", "translate(0," + (sidePadding-10) + ")")
   // "call" bruger akse-funktionen til at lave selve aksen.
-  .call(yAxis); 
-  });
+  .call(yAxis)});
 </script> 
+
 </div1>
 
 <div2 id="data1">
@@ -620,6 +626,7 @@ svg.append("g")
 
 </script> 
 </div5>
+
 
  <style>
           #section1 {
