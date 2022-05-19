@@ -27,10 +27,10 @@
     <div class="main" id="section1">
   
 
-  <center STYLE="font-size:42.0pt"  >Projekt unsafe water</center> 
+  <center STYLE="font-size:48.0pt"  >Unsafe water</center> 
 
 
-  <center STYLE="font-size:18.0pt">indsæt tekst</center> 
+  <center STYLE="font-size:18.0pt">Kan det passe af menneskeliv stadig skal gå tabt i mangel på rent drikkevand?</center> 
 
     <h3>
       <h4>
@@ -77,7 +77,7 @@
   <div id="container1" class="container">
     <div class="ub-text-card">
       <div class="ub-text-card__content">
-        <h4>Visa<sup>®</sup> Business Cash Card</h4>
+        <h4>Urbanisering<sup>®</sup> Business Cash Card</h4>
         <p class="ub-text-card__text--big">3<sup>%</sup></p>
         <p class="ub-text-card__text--small"></p>
         <p>For medium to large-sized businesses: enhanced reporting, exclusive benefits, generous credit lines, and no personal guarantee required.</p>
@@ -90,6 +90,9 @@
         <p>
       </div>
         <script type="text/javascript"> 
+
+
+
 
           // Denne query kører op imod API'en som findes i 'main.js'.
   // Denne HTML skal derfor åbnes igennem serveren for at virke.
@@ -116,7 +119,7 @@
     d3.select("#svg5").style("display", "none") 
   });
 
-    const w = 800;
+    const w = 850;
     const h = 600;
 
     // Lav SVG element
@@ -125,6 +128,9 @@
       .attr("width", w)
       .attr("height", h) 
       .attr("id", "svg1");
+
+
+
     // Lav din egen visualsering med data her!
 
      // Selve datasættet
@@ -162,7 +168,7 @@ svg.selectAll("circle") // <-- Før var det 'rect'
   })  // Radius er en konstant på '5'
   .style("stroke", "lightgreen")
   .style("fill", "lightgreen")
-  .style("stroke-width", "3px")
+  .style("stroke-width", "5px")
   
   svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
       .data(dataset)
@@ -178,7 +184,7 @@ svg.selectAll("circle") // <-- Før var det 'rect'
         return yScale(d.urbanbefolkningprocentdel);
       })
       .attr("font-family", "sans-serif")
-      .attr("font-size", "11px")
+      .attr("font-size", "15px")
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
   ;
@@ -218,6 +224,7 @@ svg.append("g")
 </div1>
 
 <div2 id="data1">
+  
   <script type="text/javascript"> 
 
     // Denne query kører op imod API'en som findes i 'main.js'.
@@ -244,7 +251,7 @@ d3.select("#klik2")
     
   })
 
-const w = 800;
+const w = 850;
 const h = 600;
 
 // Lav SVG element
@@ -307,7 +314,7 @@ return d.doedsrate/5
         return yScale(d.laesefaerdighedsrate);
       })
       .attr("font-family", "sans-serif")
-      .attr("font-size", "11px")
+      .attr("font-size", "15px")
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
   ;
@@ -367,7 +374,7 @@ d3.select("#klik3")
     d3.select("#svg5").style("display", "none")
   })
 
-const w = 800;
+const w = 850;
 const h = 600;
 
 // Lav SVG element
@@ -430,7 +437,7 @@ return d.doedsrate/5;
         return yScale(d.gennemsnitligtantalaariskole);
       })
       .attr("font-family", "sans-serif")
-      .attr("font-size", "11px")
+      .attr("font-size", "15px")
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
   ;
@@ -488,7 +495,7 @@ d3.select("#klik4")
     d3.select("#svg5").style("display", "none")
   })
 
-const w = 800;
+const w = 850;
 const h = 600;
 
 // Lav SVG element
@@ -550,7 +557,7 @@ return d.doedsrate/5;
         return yScale(d.procentdelafbefolkningunderfattighedsgraense);
       })
       .attr("font-family", "sans-serif")
-      .attr("font-size", "11px")
+      .attr("font-size", "15px")
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
   ;
@@ -608,7 +615,7 @@ d3.select("#klik5")
     d3.select("#svg5").style("display", "block")
   })
 
-const w = 800;
+const w = 850;
 const h = 600;
 
 // Lav SVG element
@@ -670,7 +677,7 @@ return d.doedsrate/5;
         return yScale(d.korruptionsindex);
       })
       .attr("font-family", "sans-serif")
-      .attr("font-size", "11px")
+      .attr("font-size", "15px")
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
   
@@ -775,6 +782,14 @@ svg.append("g")
                     vandværker)<br><br> Men så udelukkes det ikke, at størstedelen kom fra kul og fossiler, hvilket
                     tyder på, at vi sammenlagt fik brugt 218 TWh i 1985.
                 </p>
+                <br >
+                <br >
+                <br >
+                <br >
+                <br >
+                <br >
+                <a><img src="Dreng.png" width="350" height="300"></a>
+
             </div>
             <div class="textcards">
                 <h3>Hvilket mål har vi landet denne proces?</h3>
@@ -788,9 +803,11 @@ svg.append("g")
                     sammen.<br>
                     (Databasen og JavaScript i dette tilfælde.)
                 </p>
+                <a><img src="menneske.png" width="350" height="300"></a>
+
             </div>
             <div class="textcards">
-                <h3> Hvad vil vi vise med vores visualisering?</h3>
+                <h3> Hvad kan vi gøre for at hjælpe?</h3>
                 <p>Vi vil gerne vise jer Danmark og andre landes energi forbrug pr. år siden 1985 og frem til 2019,
                     med henblik på at danne et overblik over stigninger og fald i energiforbrug.
                     <br><br> Det som kan fortælles, er at det er særdeles tankevækkende, især det at forbruget
@@ -798,7 +815,11 @@ svg.append("g")
                     genoverveje
                     forbruget af energi, og hvor belastende det er for vores klima og miljø)
                 </p>
-            </div>
+                <br >
+                <br >
+                <br >
+                <a><img src="lifestraw.png" width="350" height="300"></a>
+              </div>
         </div>
 </section>
 
@@ -874,10 +895,10 @@ svg.append("g")
 <h2>Lyst til at gøre en forskel eller blive klogere?</h2>
 
 <!-- Add font awesome icons -->
-<a href="#" class="fa fa-facebook"></a>
-<a href="#" class="fa fa-child"></a>
-<a href="#" class="fa fa-youtube"></a>
-<a href="#" class="fa fa-instagram"></a>
+<a href="https://www.facebook.com/unicefdanmark" class="fa fa-facebook"></a>
+<a href="https://redbarnet.dk/" class="fa fa-child"></a>
+<a href="https://www.youtube.com/c/UNICEF" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/unicef_dk/?hl=da" class="fa fa-instagram"></a>
 <h3>
   <html>
 <head>
@@ -925,8 +946,9 @@ svg.append("g")
 </head>
 <body>
 
-<button class="button"><span>Donate</span></button>
 
+
+<button class="button"><span>Donate</span> <a href="https://webshop.redbarnet.dk/product/drikkevand/" class="button"></a></button>
 
 
 </body>
