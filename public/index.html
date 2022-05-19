@@ -69,14 +69,15 @@
     <html>
       <head>
   
-  
 
+
+        
 <div1 id="data">
 
-  <div1 id="container1" class="container">
-    <div1 class="ub-text-card">
-      <div1 class="ub-text-card__content">
-        <h4>urbanisering<sup>®</sup> Business Cash Card</h4>
+  <div id="container1" class="container">
+    <div class="ub-text-card">
+      <div class="ub-text-card__content">
+        <h4>Visa<sup>®</sup> Business Cash Card</h4>
         <p class="ub-text-card__text--big">3<sup>%</sup></p>
         <p class="ub-text-card__text--small"></p>
         <p>For medium to large-sized businesses: enhanced reporting, exclusive benefits, generous credit lines, and no personal guarantee required.</p>
@@ -87,7 +88,7 @@
           <li>Convenient mobile purchasing</li>
         </ul>
         <p>
-      </div1> 
+      </div>
         <script type="text/javascript"> 
 
           // Denne query kører op imod API'en som findes i 'main.js'.
@@ -112,8 +113,7 @@
     d3.select("#svg2").style("display", "none")
     d3.select("#svg3").style("display", "none")
     d3.select("#svg4").style("display", "none")
-    d3.select("#svg5").style("display", "none")
-    
+    d3.select("#svg5").style("display", "none") 
   });
 
     const w = 800;
@@ -218,8 +218,6 @@ svg.append("g")
 </div1>
 
 <div2 id="data1">
-
-
   <script type="text/javascript"> 
 
     // Denne query kører op imod API'en som findes i 'main.js'.
@@ -242,6 +240,8 @@ d3.select("#klik2")
     d3.select("#svg3").style("display", "none")
     d3.select("#svg4").style("display", "none")
     d3.select("#svg5").style("display", "none")
+    d3.select("container1").style("display", "block")
+    
   })
 
 const w = 800;
@@ -637,8 +637,6 @@ const yScale = d3.scaleLinear()
 .range([h-bottomPadding, bottomPadding]);
 
 
-
-
 // Lave scatter plot (punktdiagram)
 svg.selectAll("circle") // <-- Før var det 'rect'
 .data(dataset)
@@ -767,7 +765,6 @@ svg.append("g")
     <br />
     <br />
     <div class="container reveal">
-        <h1>Fakta :</h1>
         <div class="cards">
             <div class="textcards">
                 <h3> unasfe water?</h3>
