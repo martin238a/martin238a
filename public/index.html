@@ -50,7 +50,7 @@
       <br>
      
       
-      
+    
     
     </div>
   </ul>
@@ -68,8 +68,26 @@
   <table><center>
     <html>
       <head>
+  
+  
+
 <div1 id="data">
 
+  <div1 id="container1" class="container">
+    <div1 class="ub-text-card">
+      <div1 class="ub-text-card__content">
+        <h4>urbanisering<sup>®</sup> Business Cash Card</h4>
+        <p class="ub-text-card__text--big">3<sup>%</sup></p>
+        <p class="ub-text-card__text--small"></p>
+        <p>For medium to large-sized businesses: enhanced reporting, exclusive benefits, generous credit lines, and no personal guarantee required.</p>
+        <ul>
+          <li>Expense management tools</li>
+          <li>Free employee cards</li>
+          <li>Secure EMV chip technology</li>
+          <li>Convenient mobile purchasing</li>
+        </ul>
+        <p>
+      </div1> 
         <script type="text/javascript"> 
 
           // Denne query kører op imod API'en som findes i 'main.js'.
@@ -94,10 +112,11 @@
     d3.select("#svg2").style("display", "none")
     d3.select("#svg3").style("display", "none")
     d3.select("#svg4").style("display", "none")
-    d3.select("#svg5").style("display", "none") 
+    d3.select("#svg5").style("display", "none")
+    
   });
 
-    const w = 1000;
+    const w = 800;
     const h = 600;
 
     // Lav SVG element
@@ -165,19 +184,6 @@ svg.selectAll("circle") // <-- Før var det 'rect'
   ;
   
 
-
-/*
-  const x = d3
-   .scaleLinear()
-   .domain([d3.min(dataset, d => d.ikkeadgangtilrentvand), d3.max(dataset, d => d.ikkeadgangtilrentvand)])
-   .range([0, w]);
-   svg
-   .append("svg")
-   .attr("transform", "translate(0, ${height})")
-   .attr("class", "xAxis")
-   .call(d3.axisBottom(x));
-  */
-
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -201,11 +207,19 @@ svg.append("g")
   .attr("transform", "translate(0," + (sidePadding-10) + ")")
   // "call" bruger akse-funktionen til at lave selve aksen.
   .call(yAxis)});
+
+
+
+
 </script> 
+
+
 
 </div1>
 
 <div2 id="data1">
+
+
   <script type="text/javascript"> 
 
     // Denne query kører op imod API'en som findes i 'main.js'.
@@ -230,7 +244,7 @@ d3.select("#klik2")
     d3.select("#svg5").style("display", "none")
   })
 
-const w = 1000;
+const w = 800;
 const h = 600;
 
 // Lav SVG element
@@ -353,7 +367,7 @@ d3.select("#klik3")
     d3.select("#svg5").style("display", "none")
   })
 
-const w = 1000;
+const w = 800;
 const h = 600;
 
 // Lav SVG element
@@ -474,7 +488,7 @@ d3.select("#klik4")
     d3.select("#svg5").style("display", "none")
   })
 
-const w = 1000;
+const w = 800;
 const h = 600;
 
 // Lav SVG element
@@ -594,7 +608,7 @@ d3.select("#klik5")
     d3.select("#svg5").style("display", "block")
   })
 
-const w = 1000;
+const w = 800;
 const h = 600;
 
 // Lav SVG element
@@ -711,18 +725,6 @@ svg.append("g")
 
 </div>
 
-<div class="cards">
-  <div class="textcards">
-    
-      <h4 class="alignright">  unasfe water?</h4>
-      <p class="alignright" > I 1985 var vores primære energikilde fossile brændstoffer og kul i Danmark. (Vedvarende
-          energikilder var ikke særligt udnyttet i den tid)<br><br>
-          I 1985 producerede Danmark ca. 0.05 TWh i vindenergi, 0,0297 TWh i vandenergi <br><br> (Takket
-          være vores
-          vandværker)<br><br> Men så udelukkes det ikke, at størstedelen kom fra kul og fossiler, hvilket
-          tyder på, at vi sammenlagt fik brugt 218 TWh i 1985.
-      </p>
-  </div>
 
 <br />
 <br />
