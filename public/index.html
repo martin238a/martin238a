@@ -12,7 +12,7 @@
     </script>
   
   <body>
-    <div class="main" id="section1">
+
   
 
   <center STYLE="font-size:48.0pt"  >Unsafe water</center> 
@@ -37,9 +37,9 @@
   <table><center>
     <html>
       <head>       
-<div1 id="data">
 
-  <div id="container1" class="container">
+
+  <div id="txt1" class="container" style="display:block">
     <div class="ub-text-card">
       <div class="ub-text-card__content">
         <h4>Urbanisering<sup>®</sup> Business Cash Card</h4>
@@ -53,7 +53,8 @@
           <li>Convenient mobile purchasing</li>
         </ul>
         <p>
-      </div>
+        </div>
+
         <script type="text/javascript"> 
 
           // Denne query kører op imod API'en som findes i 'main.js'.
@@ -76,6 +77,8 @@
     d3.select("#svg3").style("display", "none")
     d3.select("#svg4").style("display", "none")
     d3.select("#svg5").style("display", "none") 
+    d3.select("#txt1").style("display", "block")
+    d3.select("#txt2").style("display", "none")
   });
 
     const w = 850;
@@ -172,11 +175,21 @@ svg.append("g")
 
 </script> 
 
-
-
-</div1>
-
-<div2 id="data1">
+  <div id="txt2" class="container" style="display:none">
+    <div class="ub-text-card">
+      <div class="ub-text-card__content">
+        <h4>Urbanisetissemandring<sup>®</sup> Business Cash Card</h4>
+        <p class="ub-text-card__text--big">3<sup>%</sup></p>
+        <p class="ub-text-card__text--small"></p>
+        <p>For medium to large-sized businesses: enhanced reporting, exclusive benefits, generous credit lines, and no personal guarantee required.</p>
+        <ul>
+          <li>Expense management tools</li>
+          <li>Free employee cards</li>
+          <li>Secure EMV chip technology</li>
+          <li>Convenient mobile purchasing</li>
+        </ul>
+        <p>
+      </div>
   
   <script type="text/javascript"> 
 
@@ -200,7 +213,8 @@ d3.select("#klik2")
     d3.select("#svg3").style("display", "none")
     d3.select("#svg4").style("display", "none")
     d3.select("#svg5").style("display", "none")
-    d3.select("container1").style("display", "block")
+    d3.select("#txt2").style("display", "block")
+    d3.select("#txt1").style("display", "none")
     
   })
 
@@ -297,7 +311,6 @@ svg.append("g")
 });
 
 </script> 
-</div2>
 
 <div3 id="data2">
   <script type="text/javascript"> 
@@ -653,7 +666,7 @@ svg.append("g")
           </head>
     
 
-</div>
+
 
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br><br>
