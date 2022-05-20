@@ -10,18 +10,6 @@
         document.body.style.backgroundColor = "#18188c";
       }
     </script>
-    <style>
-   
-    h1, h2, SPAN, center, h3, h4 {
-      color: rgb(255, 255, 255);
-    }
-    body {
-      background-color: rgb(249, 249, 249);
-      margin: 50px;
-    }
-  </style>
-  </head>
-  
   
   <body>
     <div class="main" id="section1">
@@ -32,46 +20,23 @@
 
   <center STYLE="font-size:18.0pt">Kan det passe af menneskeliv stadig skal gå tabt i mangel på rent drikkevand?</center> 
 
-    <h3>
+    
       <h4>
-        
         <button id="klik1">Urbanisering</button>
         <button id="klik2">Læsefærdighed</button>
         <button id="klik3">Antal år i skole</button>
         <button id="klik4">Fattighedsgrænse</button>
         <button id="klik5">Korruptionsindex</button>
-
-          </h3>
-
-    
+      </h4>
    <ul>
     <div class="main" id="section1">
       <h1 id="head-s1"></h1>
-      <br>
-     
-      
-    
-    
     </div>
   </ul>
 
-
-    </datalist>
-          
-
-
-</datalist>
-
-
-  </h4>
-
   <table><center>
     <html>
-      <head>
-  
-
-
-        
+      <head>       
 <div1 id="data">
 
   <div id="container1" class="container">
@@ -91,9 +56,6 @@
       </div>
         <script type="text/javascript"> 
 
-
-
-
           // Denne query kører op imod API'en som findes i 'main.js'.
   // Denne HTML skal derfor åbnes igennem serveren for at virke.
   d3.json("/api/urbanisering", {
@@ -108,9 +70,6 @@
     // Find hvilken knap der blev trykket på
     const id = e.target.id;
     console.log(id);
-
-
-
 
     d3.select("#svg1").style("display", "block")
     d3.select("#svg2").style("display", "none")
@@ -128,8 +87,6 @@
       .attr("width", w)
       .attr("height", h) 
       .attr("id", "svg1");
-
-
 
     // Lav din egen visualsering med data her!
 
@@ -189,7 +146,6 @@ svg.selectAll("circle") // <-- Før var det 'rect'
       .attr("fill","white");
   ;
   
-
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -213,9 +169,6 @@ svg.append("g")
   .attr("transform", "translate(0," + (sidePadding-10) + ")")
   // "call" bruger akse-funktionen til at lave selve aksen.
   .call(yAxis)});
-
-
-
 
 </script> 
 
@@ -279,7 +232,6 @@ const yScale = d3.scaleLinear()
 .domain([0, d3.max(data1, d => parseFloat(d.laesefaerdighedsrate))])
 .range([h-bottomPadding, bottomPadding]);
 
-
 // Lave scatter plot (punktdiagram)
 svg.selectAll("circle") // <-- Før var det 'rect'
 .data(dataset)
@@ -319,7 +271,6 @@ return d.doedsrate/5
       .attr("fill","white");
   ;
   
-
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -353,7 +304,6 @@ svg.append("g")
 
     // Denne query kører op imod API'en som findes i 'main.js'.
 // Denne HTML skal derfor åbnes igennem serveren for at virke.
-
 
 d3.json("/api/antalaariskole", {
 method: "POST", 
@@ -401,9 +351,6 @@ const xScale = d3.scaleLinear()
 const yScale = d3.scaleLinear()
 .domain([0, d3.max(data2, d => parseFloat(d.gennemsnitligtantalaariskole))])
 .range([h-bottomPadding, bottomPadding]);
-
-
-
 
 // Lave scatter plot (punktdiagram)
 svg.selectAll("circle") // <-- Før var det 'rect'
@@ -475,7 +422,6 @@ svg.append("g")
     // Denne query kører op imod API'en som findes i 'main.js'.
 // Denne HTML skal derfor åbnes igennem serveren for at virke.
 
-
 d3.json("/api/fattighedgraense", {
 method: "POST", 
 }).then(function(response) {
@@ -523,7 +469,6 @@ const yScale = d3.scaleLinear()
 .domain([0, d3.max(data3, d => parseFloat(d.procentdelafbefolkningunderfattighedsgraense))])
 .range([h-bottomPadding, bottomPadding]);
 
-
 // Lave scatter plot (punktdiagram)
 svg.selectAll("circle") // <-- Før var det 'rect'
 .data(dataset)
@@ -562,7 +507,6 @@ return d.doedsrate/5;
       .attr("fill","white");
   ;
   
-
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -587,7 +531,6 @@ svg.append("g")
 // "call" bruger akse-funktionen til at lave selve aksen.
 .call(yAxis); 
 });
-
 </script> 
 </div4>
 
@@ -643,7 +586,6 @@ const yScale = d3.scaleLinear()
 .domain([0, d3.max(data4, d => parseFloat(d.korruptionsindex))])
 .range([h-bottomPadding, bottomPadding]);
 
-
 // Lave scatter plot (punktdiagram)
 svg.selectAll("circle") // <-- Før var det 'rect'
 .data(dataset)
@@ -681,7 +623,6 @@ return d.doedsrate/5;
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
   
-
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -706,71 +647,25 @@ svg.append("g")
 // "call" bruger akse-funktionen til at lave selve aksen.
 .call(yAxis); 
 });
-
 </script> 
 </div5>
 
-
-
- <style>
-          #section1 {
-            height: 200px;
-           
-          }
-          
-          #section2 {
-            height: 2000px;
-            
-          }
-        
-    
-          </style>
           </head>
     
 
 </div>
 
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br><br>
 
 <div class="main" id="section1">
 
-<h6>  <a href="#section2" > <i class="fa fa-arrow-down" style="font-size:52px ;color:hotpink"></i></a>
   
-          
+<h6>  <a href="#section2" > <i class="fa fa-arrow-down" style="font-size:52px ;color:hotpink"></i></a>
+         
   <section>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <br /><br><br><br><br><br><br>
+    <div class="main" id="section1">
     <div class="container reveal">
         <div class="cards">
             <div class="textcards">
@@ -782,12 +677,8 @@ svg.append("g")
                     vandværker)<br><br> Men så udelukkes det ikke, at størstedelen kom fra kul og fossiler, hvilket
                     tyder på, at vi sammenlagt fik brugt 218 TWh i 1985.
                 </p>
-                <br >
-                <br >
-                <br >
-                <br >
-                <br >
-                <br >
+                <br><br><br><br><br><br>
+              
                 <a><img src="Dreng.png" width="350" height="300"></a>
 
             </div>
@@ -815,42 +706,12 @@ svg.append("g")
                     genoverveje
                     forbruget af energi, og hvor belastende det er for vores klima og miljø)
                 </p>
-                <br >
-                <br >
-                <br >
+                <br><br><br>
+                
                 <a><img src="lifestraw.png" width="350" height="300"></a>
               </div>
         </div>
-</section>
-
-       </h6>
-
-       <a href="#section3" > <i class="fa fa-arrow-down" style="font-size:52px ;color:hotpink"></i></a>
-
-
-  
-      </body>
-      
-    </html>
-  
-  </table></center>
-  <body>
-    <div class="main" id="section2"></div>
-    <h3>
-
-      <div class="textcards">
-        <h3>uirghjeiuergjejeorgie</h3>
-        
-        </div>
-
-        <div class="main" id="section3">   
-
-
-    </h3>
-    <h7>
-      <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 .fa {
@@ -862,36 +723,26 @@ svg.append("g")
   margin: 5px 2px;
   border-radius: 50%;
 }
-
 .fa:hover {
     opacity: 0.7;
 }
-
 .fa-facebook {
   background: #3B5998;
   color: white;
 }
-
-
 .fa-child {
   background: #dd4b39;
   color: white;
 }
-
 .fa-youtube {
   background: #bb0000;
   color: white;
 }
-
 .fa-instagram {
   background: #125688;
   color: white;
 }
-
 </style>
-</head>
-<body>
-
 <h2>Lyst til at gøre en forskel eller blive klogere?</h2>
 
 <!-- Add font awesome icons -->
@@ -899,8 +750,6 @@ svg.append("g")
 <a href="https://redbarnet.dk/" class="fa fa-child"></a>
 <a href="https://www.youtube.com/c/UNICEF" class="fa fa-youtube"></a>
 <a href="https://www.instagram.com/unicef_dk/?hl=da" class="fa fa-instagram"></a>
-<h3>
-  <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -917,14 +766,12 @@ svg.append("g")
   cursor: pointer;
   margin: 5px;
 }
-
 .button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
-
 .button span:after {
   content: '\00bb';
   position: absolute;
@@ -933,38 +780,20 @@ svg.append("g")
   right: -20px;
   transition: 0.5s;
 }
-
 .button:hover span {
   padding-right: 25px;
 }
-
 .button:hover span:after {
   opacity: 1;
   right: 0;
 }
 </style>
-</head>
-<body>
-
-
-
 <button class="button"><span>Donate</span> <a href="https://webshop.redbarnet.dk/product/drikkevand/" class="button"></a></button>
-
-
-</body>
-</html>
-</h3>
-
-
-<div class="main" id="section3"></div>
-</body>
-</html> 
-    </h7>
+       </h6>
+       
+        <div class="main" id="section3">
+      
   </body>
-</body>
-
 </html>
-
 </script>
-
 </head>

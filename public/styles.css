@@ -3,7 +3,7 @@ body {
     );
   }
   html {
-    height: 300%;
+    height: 210%;
 }
 body {
     min-height: 100%;
@@ -60,4 +60,22 @@ section .cards .textcards h3{
     bottom: 95%;
 
 }
+
+#section1 {
+  height: 200px;
+}
+
+#section2 {
+  height: 100px;
+  
+}
+
+h1, h2, SPAN, center, h3, h4 {
+  color: rgb(255, 255, 255);
+}
+body {
+  background-color: rgb(249, 249, 249);
+  margin: 50px;
+}
+
 
