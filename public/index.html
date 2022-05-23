@@ -55,7 +55,7 @@
         <p>Undersøg selv og tænk over hvordan de forskellige lande placerer sig internt, og gør dig tanker om hvilke faktorer har størst indflydelse på mangel af rent drikkevand på verdensplan. </p> 
         <p> Forklaring af visualisering: <br><br> X-aksen står fast på "Procentdel af befolkning uden adgang til rent vand" for hvert land. 
           <br><br>
-      Y-aksen data kan ændres ved tryk på knapperne. 
+      Y-aksens data kan ændres ved tryk på knapperne. 
       <br><br>
       Størrelsen på boblen viser antal døde som årsag af urent vand pr. 100.000 indbygger.
         </p>
@@ -78,6 +78,7 @@
     const id = e.target.id;
     console.log(id);
 
+    // Vælg hvilke SVG'er der skal vises og ikke vises
     d3.select("#svg1").style("display", "block")
     d3.select("#svg2").style("display", "none")
     d3.select("#svg3").style("display", "none")
@@ -85,6 +86,7 @@
     d3.select("#svg5").style("display", "none") 
   });
 
+  // højde og bredde på SVG
     const w = 850;
     const h = 600;
 
@@ -116,17 +118,18 @@ console.log("max", d3.max(data, d => parseFloat(d.urbanbefolkningprocentdel)));
     
 
 // Lave scatter plot (punktdiagram)
-svg.selectAll("circle") // <-- Før var det 'rect'
+svg.selectAll("circle") 
   .data(dataset)
   .enter()
-  .append("circle") // <-- Før var det 'rect'
+  .append("circle") 
   .attr("cx", function(d) {
-    // 'd' er et koordinat på formen [x, y]
-    return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
+    // Vælg data at lave skalering udfra (x,y)
+    return xScale(d.ikkeadgangtilrentvand); 
   })
   .attr("cy", function(d) {
-    return yScale(d.urbanbefolkningprocentdel); // Anden værdi i indre array (y)
+    return yScale(d.urbanbefolkningprocentdel); 
   })
+  // Funktion til bestemmelse af radius for alle bobler
   .attr("r", function(d) {
     return (d.doedsrate/5)+2;
   })  // Radius er en konstant på '5'
@@ -134,7 +137,7 @@ svg.selectAll("circle") // <-- Før var det 'rect'
   .style("fill", "darkorange")
   .style("stroke-width", "5px")
   
-  
+  // Labels til datapunkter, bundet op på de enkelte boblers koordinatsæt, og viser navnet på landet hørende til boblen
   svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
       .data(dataset)
       .enter()
@@ -150,15 +153,17 @@ svg.selectAll("circle") // <-- Før var det 'rect'
       })
       .attr("font-family", "sans-serif")
       .attr("font-size", "15px")
-      .attr("class", "label") // Husk at sætte class på
+      .attr("class", "label") 
       .attr("fill","white");
 
-      svg.append("text")      // text label for the x axis
+      // Titel på x-akse
+      svg.append("text") 
         .attr("x", 400 )
         .attr("y", 585 )
         .style("text-anchor", "middle")
         .text("Procentdel af befolkning uden adgang til rent vand");
      
+        // Titel på y-akse
         svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", sidePadding-5 )
@@ -167,7 +172,7 @@ svg.selectAll("circle") // <-- Før var det 'rect'
         .style("text-anchor", "middle")
         .text("Procentdel af befolkning bosat urbant");
 
-// En akse-funktion baseret på skaleringsfunktionen
+// En akse-funktion baseret på skaleringsfunktionen. Skaber selve x-aksen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
 // <g> er en container der indeholder andre SVG-elementer.
@@ -179,7 +184,7 @@ svg.append("g")
   // "call" bruger akse-funktionen til at lave selve aksen.
   .call(xAxis);
 
-// En akse-funktion baseret på skaleringsfunktionen
+// En akse-funktion baseret på skaleringsfunktionen. Skaber selve y-aksen
  const yAxis = d3.axisRight().scale(yScale);
 // På SVG laver vi en <g>
 // <g> er en container der indeholder andre SVG-elementer.
