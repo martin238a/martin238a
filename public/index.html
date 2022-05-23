@@ -50,9 +50,16 @@
           <li>Læsefærdighed</li>
           <li>Antal år i skole</li>
           <li>Fattighedsgrænse</li>
-          <li>korruption</li>
+          <li>Korruption</li>
         </ul>
-        <p>Undersøg selv og tænk over hvordan de forskellige lande placerer sig internt, og gør dig tanker om hvilke faktorer har størst indflydelse på mangel af rent drikkevand på verdensplan. </p>
+        <p>Undersøg selv og tænk over hvordan de forskellige lande placerer sig internt, og gør dig tanker om hvilke faktorer har størst indflydelse på mangel af rent drikkevand på verdensplan. </p> 
+        <p> Forklaring af visualisering: <br><br> X-aksen står fast på "Procentdel af befolkning uden adgang til rent vand" for hvert land. 
+          <br><br>
+      Y-aksen data kan ændres ved tryk på knapperne. 
+      <br><br>
+      Størrelsen på boblen viser antal døde som årsag af urent vand pr. 100.000 indbygger.
+        </p>
+
       </div>
         <script type="text/javascript"> 
 
@@ -121,7 +128,7 @@ svg.selectAll("circle") // <-- Før var det 'rect'
     return yScale(d.urbanbefolkningprocentdel); // Anden værdi i indre array (y)
   })
   .attr("r", function(d) {
-    return d.doedsrate/5;
+    return (d.doedsrate/5)+2;
   })  // Radius er en konstant på '5'
   .style("stroke", "darkorange")
   .style("fill", "darkorange")
@@ -733,7 +740,7 @@ svg.append("g")
 
 <div class="main" id="section1">
   <br><br><br><br><br><br><br><br>
-<h6>  <a href="#section2" > <i class="fa fa-arrow-down" style="font-size:52px ;color:hotpink"></i></a>
+<h6>  <a href="#section2" > <i class="fa fa-arrow-down" style="font-size:52px ;color:darkorange"></i></a>
          
   <section>
     <br /><br>

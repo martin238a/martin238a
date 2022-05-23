@@ -15,7 +15,7 @@ section .cards{
 }
 
 section .cards .textcards{
-    background: rgb(228, 211, 211);
+    background: darkorange;
     margin: 20px;
     padding: 20px;
 }
@@ -41,9 +41,9 @@ section .cards .textcards h3{
 
 .ub-text-card {
   border-radius: 0.125rem;
-  box-shadow: 0 2px 4px rgba(172, 172, 172, 0.5);
+  box-shadow: 0 2px 4px darkorange;
   transition: box-shadow 250ms cubic-bezier(0.5, 0, 0.15, 1);
-  background: rgb(209, 170, 170);
+  background: darkorange;
   text-align: center;
   position: right;
   width: 200%;
@@ -51,7 +51,7 @@ section .cards .textcards h3{
   padding: 1rem 5.875rem 20.5rem;
   margin: 20px;
   padding: 100x;
-  height: 30%;
+  height: 48%;
   
   position: absolute;
     top: 20%;
