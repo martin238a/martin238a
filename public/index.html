@@ -12,8 +12,6 @@
     </script>
   
   <body>
-
-    
     <div class="main" id="section1">
   
 
@@ -125,9 +123,10 @@ svg.selectAll("circle") // <-- Før var det 'rect'
   .attr("r", function(d) {
     return d.doedsrate/5;
   })  // Radius er en konstant på '5'
-  .style("stroke", "lightgreen")
-  .style("fill", "lightgreen")
+  .style("stroke", "darkorange")
+  .style("fill", "darkorange")
   .style("stroke-width", "5px")
+  
   
   svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
       .data(dataset)
@@ -146,8 +145,21 @@ svg.selectAll("circle") // <-- Før var det 'rect'
       .attr("font-size", "15px")
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
-  ;
-  
+
+      svg.append("text")      // text label for the x axis
+        .attr("x", 400 )
+        .attr("y", 585 )
+        .style("text-anchor", "middle")
+        .text("Procentdel af befolkning uden adgang til rent vand");
+     
+        svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", sidePadding-5 )
+        .attr("x", 0 - (h / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Procentdel af befolkning bosat urbant");
+
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -248,8 +260,8 @@ return yScale(d.laesefaerdighedsrate); // Anden værdi i indre array (y)
 return d.doedsrate/5
 })
 
-.style("stroke", "lightgreen")
-  .style("fill", "lightgreen")
+.style("stroke", "darkorange")
+  .style("fill", "darkorange")
   .style("stroke-width", "3px")
   
   svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
@@ -271,6 +283,21 @@ return d.doedsrate/5
       .attr("fill","white");
   ;
   
+
+  svg.append("text")      // text label for the x axis
+        .attr("x", 400 )
+        .attr("y", 585 )
+        .style("text-anchor", "middle")
+        .text("Procentdel af befolkning uden adgang til rent vand");
+     
+        svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", sidePadding-5 )
+        .attr("x", 0 - (h / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Procentdel af befolkning uden læsefærdighed");
+
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -366,8 +393,8 @@ return yScale(d.gennemsnitligtantalaariskole); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
 return d.doedsrate/5;
-}) .style("stroke", "lightgreen")
-  .style("fill", "lightgreen")
+}) .style("stroke", "darkorange")
+  .style("fill", "darkorange")
   .style("stroke-width", "3px")
   
   svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
@@ -388,6 +415,22 @@ return d.doedsrate/5;
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
   ;
+
+
+  svg.append("text")      // text label for the x axis
+        .attr("x", 400 )
+        .attr("y", 585 )
+        .style("text-anchor", "middle")
+        .text("Procentdel af befolkning uden adgang til rent vand");
+     
+        svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", sidePadding-5 )
+        .attr("x", 0 - (h / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Gennemsnitligt antal år tilbragt under uddannelse");
+
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -484,8 +527,8 @@ return yScale(d.procentdelafbefolkningunderfattighedsgraense); // Anden værdi i
 .attr("r", function(d) {
 return d.doedsrate/5;
 })
-.style("stroke", "lightgreen")
-  .style("fill", "lightgreen")
+.style("stroke", "darkorange")
+  .style("fill", "darkorange")
   .style("stroke-width", "3px")
   
   svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
@@ -507,6 +550,21 @@ return d.doedsrate/5;
       .attr("fill","white");
   ;
   
+
+  svg.append("text")      // text label for the x axis
+        .attr("x", 400 )
+        .attr("y", 585 )
+        .style("text-anchor", "middle")
+        .text("Procentdel af befolkning uden adgang til rent vand");
+     
+        svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", sidePadding-5 )
+        .attr("x", 0 - (h / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Procentdel af befolkning som lever under fattighedsgrænsen (1,9$ pr. dag)");
+
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -601,8 +659,8 @@ return yScale(d.korruptionsindex); // Anden værdi i indre array (y)
 .attr("r", function(d) {
 return d.doedsrate/5;
 })
-.style("stroke", "lightgreen")
-  .style("fill", "lightgreen")
+.style("stroke", "darkorange")
+  .style("fill", "darkorange")
   .style("stroke-width", "3px")
   
   svg.selectAll("text.label") // "text.label" betyder <text> med class "label"
@@ -623,6 +681,21 @@ return d.doedsrate/5;
       .attr("class", "label") // Husk at sætte class på
       .attr("fill","white");
   
+
+      svg.append("text")      // text label for the x axis
+        .attr("x", 400 )
+        .attr("y", 585 )
+        .style("text-anchor", "middle")
+        .text("Procentdel af befolkning uden adgang til rent vand");
+     
+        svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", sidePadding-5 )
+        .attr("x", 0 - (h / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Korruptionsindex");
+
 // En akse-funktion baseret på skaleringsfunktionen
 const xAxis = d3.axisBottom().scale(xScale);
 // På SVG laver vi en <g>
@@ -656,61 +729,55 @@ svg.append("g")
 </div>
 
 
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br><br>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> <br>
 
 <div class="main" id="section1">
-
-  
+  <br><br><br><br><br><br><br><br>
 <h6>  <a href="#section2" > <i class="fa fa-arrow-down" style="font-size:52px ;color:hotpink"></i></a>
          
   <section>
-    <br /><br><br><br><br><br><br> <br><br>
+    <br /><br>
+    
     <div class="main" id="section1">
     <div class="container reveal">
         <div class="cards">
             <div class="textcards">
-                <h3> unasfe water?</h3>
-                <p>I 1985 var vores primære energikilde fossile brændstoffer og kul i Danmark. (Vedvarende
-                    energikilder var ikke særligt udnyttet i den tid)<br><br>
-                    I 1985 producerede Danmark ca. 0.05 TWh i vindenergi, 0,0297 TWh i vandenergi <br><br> (Takket
-                    være vores
-                    vandværker)<br><br> Men så udelukkes det ikke, at størstedelen kom fra kul og fossiler, hvilket
-                    tyder på, at vi sammenlagt fik brugt 218 TWh i 1985.
+                <h3> Unsafe water </h3><br><br>
+                <p>Unsafe water er en oplysningskampagne der iscene sætter problemet om mangel på rent drikkevand i den 3. verden. <br><br> <br>
+                  Manglen på rent drikkevand tager hvert år livet af 23 millioner mennesker, mens at tre fjerdele af al sygdom i verden kan føres tilbage til urent vand og manglende sanitet. <br><br><br>
+                  Omfanget af dødsfald og sygdom som direkte oversag af urent vand, kan for nogle virker overraskende og chokerne, for kan det virkelig passe, at vi i en tidsalder, hvor folk gøres klar til at blive sendt til Mars, og teknologien er eksponentielt udviklende, stadig skal miste 23 millioner menneskeliv om året på manglen drikkevand?
                 </p>
-                <br><br><br><br><br><br>
+                <br><br><br><br><br><br><br>
               
                 <a><img src="Dreng.png" width="350" height="300"></a>
 
             </div>
             <div class="textcards">
-                <h3>Hvilket mål har vi landet denne proces?</h3>
-                <p>På trods af en række modgange, har vi stadig formået at fremstille noget overbliksdannende og
-                    relativt. Noget som er tankevækkende og ikke rigtigt viser sig uden relevans.<br>
-                    Vi har formået at udarbejde noget, som faktisk bærer betydning og besvarer spørgsmål, hvilket
-                    også var målet.<br><br>
-                    Et andet mål som vi har landet i denne proces er bl.a. måden at tackle konflikter på, samt måden
-                    hvorpå vi inddrages i det, som vi læser til (IT-arkitektur).<br><br>Det at skabe noget
-                    kommunikativt og interaktivt,<br> samt måden man får 2 ukendte ting til at kommunikere
-                    sammen.<br>
-                    (Databasen og JavaScript i dette tilfælde.)
+                <h3>Kolde fakta om drikkevand</h3>
+                <p>
+                  <li>780 mio. mennesker har lige nu ikke adgang til rent drikkevand. Det er 1 ud af 10 mennesker på kloden.</li> <br><br>
+                  <li>Mennesker kan godt leve i flere uger uden mad, men vores kroppe dur ikke mere end et par dage uden vand. Så dør vi simpelthen af tørst. Kroppen er heller ikke ligeglad med, hvad det er for noget vand, vi drikker. Det skal være rent vand, ellers bliver vi syge af de bakterier, der gemmer sig i vandet.</li><br><br>
+                  <li>Børn og voksne kan nøjes med 5 liter vand til at drikke og lave mad i hver dag. Men derudover skal vi også helst bruge 25-50 liter til at vaske hænder, børste tænder, bade og gøre rent. Det giver 30-55 liter vand om dagen per person. Til sammenligning bruger vi i Danmark omkring 100 liter vand om dagen hver.</li><br><br>
+                  <li>1,8 mia. flere mennesker i verden har vand i dag end i år 2000, men det er stadig ikke nok.</li> <br><br>
+
+
+
                 </p>
                 <a><img src="menneske.png" width="350" height="300"></a>
 
             </div>
             <div class="textcards">
-                <h3> Hvad kan vi gøre for at hjælpe?</h3>
-                <p>Vi vil gerne vise jer Danmark og andre landes energi forbrug pr. år siden 1985 og frem til 2019,
-                    med henblik på at danne et overblik over stigninger og fald i energiforbrug.
-                    <br><br> Det som kan fortælles, er at det er særdeles tankevækkende, især det at forbruget
-                    udvikler sig som en ting der ligger latent i vores bevidsthed.<br><br>(Vi 'glemmer' at
-                    genoverveje
-                    forbruget af energi, og hvor belastende det er for vores klima og miljø)
+                <h3> Hvad kan du gøre for at hjælpe?</h3><br><br>
+                <p> Der findes mange hjælpeorganisationer som støtter manglen på rent vand, herunder Unicef og Red barnet. <br><br>
+                   Der er flere måder hvorpå du som individ kan hjælpe: <br><br> Igennem vores link i bunden er der mulighed for at donerer drikkevand direkte til familier i Afrika, men det er også muligt at donerer lifestraws, et redskab der er udviklet til at fileterer vandet igennem et slags sugerør, der kan anvendes på stort set alle slags vandkilder.
                 </p>
-                <br><br><br>
+                <br><br><br><br><br><br><br><br><br>
                 
                 <a><img src="lifestraw.png" width="350" height="300"></a>
+                <br><br><br>
               </div>
         </div>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -743,7 +810,8 @@ svg.append("g")
   color: white;
 }
 </style>
-<h2>Lyst til at gøre en forskel eller blive klogere?</h2>
+<br><br>
+<h2>Lyst     til at gøre en forskel eller blive klogere?</h2>
 
 <!-- Add font awesome icons -->
 <a href="https://www.facebook.com/unicefdanmark" class="fa fa-facebook"></a>
