@@ -78,6 +78,7 @@ app.post("/api/urbanisering", async (req, res) => {
     ON adgangtilrentvand.land=urbanisering.land
     WHERE ikkeadgangtilrentvand is not null and urbanbefolkningprocentdel is not null and urbanisering.land IN ('Nigeria', 'Somalia','African Republic','Liberia','India','Pakistan','Brazil','Denmark','China','Russia','United Kingdom','United States')`;
 
+    
     queryData = await client.query(query);
     // Giv svar tilbage til JavaScript
     res.json({
