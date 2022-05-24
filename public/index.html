@@ -18,7 +18,7 @@
   <center STYLE="font-size:48.0pt"  >Unsafe water</center> 
 
 
-  <center STYLE="font-size:18.0pt">Kan det passe af menneskeliv stadig skal gå tabt i mangel på rent drikkevand?</center> 
+  <center STYLE="font-size:18.0pt">Kan det passe at menneskeliv stadig skal gå tabt i mangel på rent drikkevand?</center> 
 
     
       <h4>
@@ -269,7 +269,7 @@ return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
 return yScale(d.laesefaerdighedsrate); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
-return d.doedsrate/5
+return (d.doedsrate/5)+2
 })
 
 .style("stroke", "darkorange")
@@ -404,7 +404,7 @@ return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
 return yScale(d.gennemsnitligtantalaariskole); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
-return d.doedsrate/5;
+return (d.doedsrate/5)+2;
 }) .style("stroke", "darkorange")
   .style("fill", "darkorange")
   .style("stroke-width", "3px")
@@ -537,7 +537,7 @@ return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
 return yScale(d.procentdelafbefolkningunderfattighedsgraense); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
-return d.doedsrate/5;
+return (d.doedsrate/5)+2;
 })
 .style("stroke", "darkorange")
   .style("fill", "darkorange")
@@ -669,7 +669,7 @@ return xScale(d.ikkeadgangtilrentvand); // Første værdi i indre array (x)
 return yScale(d.korruptionsindex); // Anden værdi i indre array (y)
 })
 .attr("r", function(d) {
-return d.doedsrate/5;
+return (d.doedsrate/5)+2;
 })
 .style("stroke", "darkorange")
   .style("fill", "darkorange")
@@ -755,9 +755,9 @@ svg.append("g")
         <div class="cards">
             <div class="textcards">
                 <h3> Unsafe water </h3><br><br>
-                <p>Unsafe water er en oplysningskampagne der iscene sætter problemet om mangel på rent drikkevand i den 3. verden. <br><br> <br>
-                  Manglen på rent drikkevand tager hvert år livet af 23 millioner mennesker, mens at tre fjerdele af al sygdom i verden kan føres tilbage til urent vand og manglende sanitet. <br><br><br>
-                  Omfanget af dødsfald og sygdom som direkte oversag af urent vand, kan for nogle virker overraskende og chokerne, for kan det virkelig passe, at vi i en tidsalder, hvor folk gøres klar til at blive sendt til Mars, og teknologien er eksponentielt udviklende, stadig skal miste 23 millioner menneskeliv om året på manglen drikkevand?
+                <p>Unsafe water er en oplysningskampagne der iscenesætter problemet om mangel på rent drikkevand i den 3. verden. <br><br> <br>
+                  Manglen på rent drikkevand tager hvert år livet af 23 millioner mennesker, mens at 75% af al sygdom i verden kan føres tilbage til urent drikkevand og manglende sanitet. <br><br><br>
+                  Omfanget af dødsfald og sygdom som direkte årsag af urent vand, kan for nogle virke overraskende og chokerende, for kan det virkelig passe, at vi i en tidsalder, hvor folk gøres klar til at blive sendt til Mars, og teknologien er eksponentielt udviklende, stadig skal miste 23 millioner menneskeliv om året grundet manglen på drikkevand?
                 </p>
                 <br><br><br><br><br><br><br>
               
@@ -769,8 +769,8 @@ svg.append("g")
                 <p>
                   <li>780 mio. mennesker har lige nu ikke adgang til rent drikkevand. Det er 1 ud af 10 mennesker på kloden.</li> <br><br>
                   <li>Mennesker kan godt leve i flere uger uden mad, men vores kroppe dur ikke mere end et par dage uden vand. Så dør vi simpelthen af tørst. Kroppen er heller ikke ligeglad med, hvad det er for noget vand, vi drikker. Det skal være rent vand, ellers bliver vi syge af de bakterier, der gemmer sig i vandet.</li><br><br>
-                  <li>Børn og voksne kan nøjes med 5 liter vand til at drikke og lave mad i hver dag. Men derudover skal vi også helst bruge 25-50 liter til at vaske hænder, børste tænder, bade og gøre rent. Det giver 30-55 liter vand om dagen per person. Til sammenligning bruger vi i Danmark omkring 100 liter vand om dagen hver.</li><br><br>
-                  <li>1,8 mia. flere mennesker i verden har vand i dag end i år 2000, men det er stadig ikke nok.</li> <br><br>
+                  <li>Børn og voksne kan nøjes med 5 liter vand til at drikke og lave mad i hver dag. Men derudover skal vi også helst bruge 25-50 liter til at vaske hænder, børste tænder, bade og gøre rent. Det giver 30-55 liter vand om dagen pr. person. Til sammenligning bruger vi i Danmark omkring 100 liter vand om dagen pr. person.</li><br><br>
+                  <li>1,8 mia. flere mennesker i verden, har vand i dag, end i år 2000, men det er stadig ikke nok!</li> <br><br>
 
 
 
@@ -781,9 +781,9 @@ svg.append("g")
             <div class="textcards">
                 <h3> Hvad kan du gøre for at hjælpe?</h3><br><br>
                 <p> Der findes mange hjælpeorganisationer som støtter manglen på rent vand, herunder Unicef og Red barnet. <br><br>
-                   Der er flere måder hvorpå du som individ kan hjælpe: <br><br> Igennem vores link i bunden er der mulighed for at donerer drikkevand direkte til familier i Afrika, men det er også muligt at donerer lifestraws, et redskab der er udviklet til at fileterer vandet igennem et slags sugerør, der kan anvendes på stort set alle slags vandkilder.
+                   Der er flere måder hvorpå du som individ kan hjælpe: <br><br> Igennem vores link i bunden er der mulighed for at donere drikkevand direkte til familier i Afrika, men det er også muligt at donere lifestraws, et redskab der er udviklet til at filtrere vandet, der kan anvendes på stort set alle slags vandkilder.
                 </p>
-                <br><br><br><br><br><br><br>
+                <br><br><br><br><br><br>
                 
                 <a><img src="lifestraw.png" width="350" height="300"></a>
                 <br><br><br>
