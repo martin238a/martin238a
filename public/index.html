@@ -106,7 +106,7 @@
 
      //lav en skala fro x-aksen
      const xScale = d3.scaleLinear()
-      .domain([0, d3.max(data, d => parseFloat(d.ikkeadgangtilrentvand))])
+      .domain([0, d3.max(data, d => parseFloat(d.ikkeadgangtilrentvand)*1.1)])
       .range([sidePadding, w-sidePadding]);
 
     // Lav en skala for y-aksen
@@ -159,7 +159,7 @@ svg.selectAll("circle")
       // Titel på x-akse
       svg.append("text") 
         .attr("x", 400 )
-        .attr("y", 585 )
+        .attr("y", 595 )
         .style("text-anchor", "middle")
         .text("Procentdel af befolkning uden adgang til rent vand");
      
@@ -180,7 +180,7 @@ svg.append("g")
   // "transform" er en flytning af hele <g>
   // Eller på dansk: "parallelforskydning".
   // Den flyttes ned i bunden af diagrammet
-  .attr("transform", "translate(0," + (h - bottomPadding) + ")")
+  .attr("transform", "translate(0," + (h - bottomPadding+10) + ")")
   // "call" bruger akse-funktionen til at lave selve aksen.
   .call(xAxis);
 
@@ -248,7 +248,7 @@ const bottomPadding = 50;
 
 //lav en skala fro x-aksen
 const xScale = d3.scaleLinear()
-.domain([0, d3.max(data1, d => parseFloat(d.ikkeadgangtilrentvand))])
+.domain([0, d3.max(data1, d => parseFloat(d.ikkeadgangtilrentvand)*1.1)])
 .range([sidePadding, w-sidePadding]);
 
 // Lav en skala for y-aksen
@@ -298,7 +298,7 @@ return (d.doedsrate/5)+2
 
   svg.append("text")      // text label for the x axis
         .attr("x", 400 )
-        .attr("y", 585 )
+        .attr("y", 595 )
         .style("text-anchor", "middle")
         .text("Procentdel af befolkning uden adgang til rent vand");
      
@@ -318,7 +318,7 @@ svg.append("g")
 // "transform" er en flytning af hele <g>
 // Eller på dansk: "parallelforskydning".
 // Den flyttes ned i bunden af diagrammet
-.attr("transform", "translate(0," + (h - bottomPadding) + ")")
+.attr("transform", "translate(0," + (h - bottomPadding+10) + ")")
 // "call" bruger akse-funktionen til at lave selve aksen.
 .call(xAxis);
 
@@ -383,7 +383,7 @@ const bottomPadding = 50;
 
 //lav en skala fro x-aksen
 const xScale = d3.scaleLinear()
-.domain([0, d3.max(data2, d => parseFloat(d.ikkeadgangtilrentvand))])
+.domain([0, d3.max(data2, d => parseFloat(d.ikkeadgangtilrentvand)*1.1)])
 .range([sidePadding, w-sidePadding]);
 
 // Lav en skala for y-aksen
@@ -431,7 +431,7 @@ return (d.doedsrate/5)+2;
 
   svg.append("text")      // text label for the x axis
         .attr("x", 400 )
-        .attr("y", 585 )
+        .attr("y", 595 )
         .style("text-anchor", "middle")
         .text("Procentdel af befolkning uden adgang til rent vand");
      
@@ -451,7 +451,7 @@ svg.append("g")
 // "transform" er en flytning af hele <g>
 // Eller på dansk: "parallelforskydning".
 // Den flyttes ned i bunden af diagrammet
-.attr("transform", "translate(0," + (h - bottomPadding) + ")")
+.attr("transform", "translate(0," + (h - bottomPadding+10) + ")")
 // "call" bruger akse-funktionen til at lave selve aksen.
 .call(xAxis);
 
@@ -516,7 +516,7 @@ const bottomPadding = 50;
 
 //lav en skala fro x-aksen
 const xScale = d3.scaleLinear()
-.domain([0, d3.max(data3, d => parseFloat(d.ikkeadgangtilrentvand))])
+.domain([0, d3.max(data3, d => parseFloat(d.ikkeadgangtilrentvand)*1.1)])
 .range([sidePadding, w-sidePadding]);
 
 // Lav en skala for y-aksen
@@ -565,7 +565,7 @@ return (d.doedsrate/5)+2;
 
   svg.append("text")      // text label for the x axis
         .attr("x", 400 )
-        .attr("y", 585 )
+        .attr("y", 595 )
         .style("text-anchor", "middle")
         .text("Procentdel af befolkning uden adgang til rent vand");
      
@@ -585,7 +585,7 @@ svg.append("g")
 // "transform" er en flytning af hele <g>
 // Eller på dansk: "parallelforskydning".
 // Den flyttes ned i bunden af diagrammet
-.attr("transform", "translate(0," + (h - bottomPadding) + ")")
+.attr("transform", "translate(0," + (h - bottomPadding+10) + ")")
 // "call" bruger akse-funktionen til at lave selve aksen.
 .call(xAxis);
 
@@ -648,7 +648,7 @@ const bottomPadding = 50;
 
 //lav en skala fro x-aksen
 const xScale = d3.scaleLinear()
-.domain([0, d3.max(data4, d => parseFloat(d.ikkeadgangtilrentvand))])
+.domain([0, d3.max(data4, d => parseFloat(d.ikkeadgangtilrentvand)*1.1)])
 .range([sidePadding, w-sidePadding]);
 
 // Lav en skala for y-aksen
@@ -696,7 +696,7 @@ return (d.doedsrate/5)+2;
 
       svg.append("text")      // text label for the x axis
         .attr("x", 400 )
-        .attr("y", 585 )
+        .attr("y", 595 )
         .style("text-anchor", "middle")
         .text("Procentdel af befolkning uden adgang til rent vand");
      
@@ -716,7 +716,7 @@ svg.append("g")
 // "transform" er en flytning af hele <g>
 // Eller på dansk: "parallelforskydning".
 // Den flyttes ned i bunden af diagrammet
-.attr("transform", "translate(0," + (h - bottomPadding) + ")")
+.attr("transform", "translate(0," + (h - bottomPadding+10) + ")")
 // "call" bruger akse-funktionen til at lave selve aksen.
 .call(xAxis);
 
@@ -759,7 +759,7 @@ svg.append("g")
                   Manglen på rent drikkevand tager hvert år livet af 23 millioner mennesker, mens at 75% af al sygdom i verden kan føres tilbage til urent drikkevand og manglende sanitet. <br><br><br>
                   Omfanget af dødsfald og sygdom som direkte årsag af urent vand, kan for nogle virke overraskende og chokerende, for kan det virkelig passe, at vi i en tidsalder, hvor folk gøres klar til at blive sendt til Mars, og teknologien er eksponentielt udviklende, stadig skal miste 23 millioner menneskeliv om året grundet manglen på drikkevand?
                 </p>
-                <br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br>
               
                 <a><img src="Dreng.png" width="350" height="300"></a>
 
@@ -783,7 +783,7 @@ svg.append("g")
                 <p> Der findes mange hjælpeorganisationer som støtter manglen på rent vand, herunder Unicef og Red barnet. <br><br>
                    Der er flere måder hvorpå du som individ kan hjælpe: <br><br> Igennem vores link i bunden er der mulighed for at donere drikkevand direkte til familier i Afrika, men det er også muligt at donere lifestraws, et redskab der er udviklet til at filtrere vandet, der kan anvendes på stort set alle slags vandkilder.
                 </p>
-                <br><br><br><br><br><br><br><br><br> 
+                <br><br><br><br><br><br><br><br>
                 
                 <a><img src="lifestraw.png" width="350" height="300"></a>
                 <br><br><br>

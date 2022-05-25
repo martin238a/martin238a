@@ -15,6 +15,7 @@ section .cards{
 }
 
 section .cards .textcards{
+  font-size: 13px;
     background: darkorange;
     margin: 20px;
     padding: 20px;
